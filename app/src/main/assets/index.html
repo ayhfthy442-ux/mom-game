@@ -1,0 +1,1890 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#fdf3f6">
+<title>بيتنا الصغير — أم وبيبي</title>
+<style>
+:root{
+  --bg:#fdf3f6; --card:#ffffff; --ink:#3c2b35; --muted:#9b8792;
+  --pink:#e26a92; --pink2:#f7c9d8; --gold:#c9a227; --line:#f0dfe6;
+  --green:#3f9e72; --blue:#5b8fd6; --shadow:0 6px 18px rgba(180,110,140,.14);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:"Segoe UI","Noto Naskh Arabic",Tahoma,Arial,sans-serif;
+  background:
+    radial-gradient(1200px 500px at 50% -10%, #ffe6ef 0%, transparent 60%),
+    var(--bg);
+  color:var(--ink); min-height:100vh;
+}
+#app{max-width:640px;margin:0 auto;padding:0 12px 92px}
+header.top{
+  position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:10px;
+  padding:10px 4px;background:linear-gradient(#fdf3f6 70%,rgba(253,243,246,0));
+}
+header.top .brand{font-weight:800;font-size:18px;letter-spacing:.2px}
+header.top .brand span{color:var(--pink)}
+header.top .spacer{flex:1}
+.pill{
+  display:inline-flex;align-items:center;gap:6px;background:var(--card);
+  border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;
+  box-shadow:var(--shadow);font-weight:700;white-space:nowrap;
+}
+.pill.gold{color:#8a6a12;background:linear-gradient(#fff9e6,#fff2c9);border-color:#f0dfa5}
+h2.sec{font-size:16px;margin:18px 4px 10px}
+h2.sec small{font-weight:500;color:var(--muted);font-size:12px;margin-inline-start:6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:var(--shadow)}
+.row{display:flex;gap:10px;align-items:center}
+.grow{flex:1}
+.muted{color:var(--muted);font-size:13px;line-height:1.7}
+button{font-family:inherit}
+.btn{
+  border:0;border-radius:16px;padding:12px 16px;font-size:15px;font-weight:800;cursor:pointer;
+  background:var(--pink);color:#fff;box-shadow:0 6px 14px rgba(226,106,146,.32);
+  transition:transform .08s ease, filter .15s ease;
+}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:var(--card);color:var(--pink);border:1.5px solid var(--pink2);box-shadow:none}
+.btn.soft{background:#fbe7ee;color:#a94d70;box-shadow:none}
+.btn:disabled{opacity:.45;filter:grayscale(.3);cursor:default}
+.big{width:100%;padding:16px;font-size:17px;border-radius:18px}
+
+/* ---------- start ---------- */
+.hero{text-align:center;padding:26px 8px 8px}
+.hero .logo{font-size:58px;line-height:1}
+.hero h1{font-size:26px;margin:10px 0 4px}
+.hero p{color:var(--muted);margin:0 0 6px;font-size:14px}
+.field{margin:14px 0}
+.field label{display:block;font-size:13px;font-weight:800;margin:0 4px 8px;color:#6b4c5b}
+.field input, .field select{
+  width:100%;border:1.5px solid var(--line);background:#fff;border-radius:14px;
+  padding:13px 14px;font-size:16px;font-family:inherit;color:var(--ink);outline:none;
+}
+.field input:focus{border-color:var(--pink2)}
+.gender{display:flex;gap:10px}
+.gender button{
+  flex:1;border:1.5px solid var(--line);background:#fff;border-radius:18px;padding:14px 8px;
+  font-size:15px;font-weight:800;color:#7a5c6a;cursor:pointer;
+}
+.gender button.on{border-color:var(--pink);background:#fdeaf1;color:#b5436b;box-shadow:var(--shadow)}
+.gender .em{font-size:26px;display:block;margin-bottom:4px}
+
+/* ---------- hospital ---------- */
+.hosp{
+  position:relative;margin-top:10px;border-radius:26px;overflow:hidden;height:320px;
+  background:linear-gradient(#fff,#fdeef4 70%,#fbdbe6);border:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.hosp .window{position:absolute;inset:18px 22px auto auto;width:110px;height:80px;border-radius:14px;background:linear-gradient(#bfe3ff,#e9f7ff);border:6px solid #fff;box-shadow:0 4px 12px rgba(90,130,180,.18)}
+.hosp .cross{position:absolute;top:22px;left:22px;width:44px;height:44px;border-radius:12px;background:#fff;box-shadow:var(--shadow);font-size:26px;display:grid;place-items:center;color:#e05b7d;font-weight:900}
+.hosp .bed{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);width:260px;height:130px}
+.hosp .mattress{position:absolute;left:0;right:0;bottom:34px;height:52px;border-radius:16px;background:#fff;border:2px solid #f2dbe4}
+.hosp .pillow{position:absolute;right:18px;bottom:70px;width:60px;height:26px;border-radius:12px;background:#fff;border:2px solid #f2dbe4}
+.hosp .legs{position:absolute;left:8px;right:8px;bottom:0;height:34px;border-inline:10px solid #d9c6cf;border-radius:0 0 8px 8px}
+.hosp .baby{position:absolute;left:50%;top:-26px;transform:translateX(-50%);font-size:46px;animation:sway 2.6s ease-in-out infinite}
+@keyframes sway{0%,100%{transform:translateX(-50%) rotate(-4deg)}50%{transform:translateX(-50%) rotate(4deg)}}
+.hosp .nurse{position:absolute;left:18px;bottom:36px;font-size:52px}
+.spark{position:absolute;font-size:18px;opacity:.8;animation:tw 2.4s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1.1)}}
+
+/* ---------- tabs ---------- */
+nav.tabs{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;justify-content:center;
+  padding:8px 10px 14px;background:linear-gradient(rgba(253,243,246,0),#fdf3f6 35%);
+}
+nav.tabs .inner{
+  display:flex;gap:2px;background:rgba(255,255,255,.92);border:1px solid var(--line);
+  border-radius:22px;padding:6px;box-shadow:0 10px 26px rgba(170,110,140,.18);
+  backdrop-filter:blur(8px);max-width:620px;width:100%;justify-content:space-between;
+}
+nav.tabs button{
+  flex:1;border:0;background:transparent;border-radius:16px;padding:8px 2px;cursor:pointer;
+  font-size:11px;font-weight:800;color:#9a7e8b;display:flex;flex-direction:column;gap:3px;align-items:center;
+}
+nav.tabs button .i{font-size:19px;line-height:1}
+nav.tabs button.on{background:#fde8ef;color:#b5436b}
+
+/* ---------- home ---------- */
+.room{
+  position:relative;border-radius:26px;overflow:hidden;border:1px solid var(--line);
+  background:linear-gradient(#ffeef5,#f7dce7);box-shadow:var(--shadow);padding:12px;
+}
+.avatar-wrap{display:flex;justify-content:center;align-items:flex-end;min-height:250px}
+svg{display:block}
+.bubble{
+  position:absolute;top:12px;left:12px;max-width:200px;background:#fff;border-radius:16px;
+  padding:10px 12px;font-size:13px;line-height:1.5;box-shadow:var(--shadow);border:1px solid var(--line);
+}
+.bubble:after{content:"";position:absolute;left:22px;bottom:-8px;border:8px solid transparent;border-top-color:#fff}
+.stat{margin:8px 0}
+.stat .lab{display:flex;justify-content:space-between;font-size:12px;font-weight:800;color:#7c5d6b;margin-bottom:4px}
+.bar{height:10px;border-radius:99px;background:#f4e6ec;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px;transition:width .35s ease}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.act{
+  border:1px solid var(--line);background:#fff;border-radius:18px;padding:12px 8px;cursor:pointer;
+  font-weight:800;font-size:13px;color:#6b4c5b;display:flex;flex-direction:column;gap:6px;align-items:center;
+  box-shadow:0 3px 10px rgba(180,120,150,.08);
+}
+.act:active{transform:scale(.97)}
+.act .i{font-size:24px}
+.task{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.task:last-child{border-bottom:0}
+.task .tick{width:24px;height:24px;border-radius:50%;border:2px solid var(--pink2);display:grid;place-items:center;font-size:13px;color:#fff;flex:none}
+.task.done .tick{background:var(--green);border-color:var(--green)}
+.task.done .tx{text-decoration:line-through;color:var(--muted)}
+
+/* ---------- wardrobe ---------- */
+.chips{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 10px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{
+  flex:none;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;
+  font-size:13px;font-weight:800;color:#8a6d7b;cursor:pointer;
+}
+.chip.on{background:var(--pink);border-color:var(--pink);color:#fff}
+.items{display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:10px}
+.item{
+  background:#fff;border:1px solid var(--line);border-radius:18px;padding:10px;display:flex;flex-direction:column;gap:8px;
+  box-shadow:0 3px 10px rgba(180,120,150,.07);
+}
+.item .sw{height:54px;border-radius:12px;position:relative;overflow:hidden}
+.item .sw:after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,rgba(255,255,255,.5),transparent 55%)}
+.item .nm{font-size:12.5px;font-weight:800;line-height:1.35}
+.item .pr{font-size:11.5px;color:var(--muted)}
+.item .bx{display:flex;gap:6px;margin-top:auto}
+.item .bx button{flex:1;border:0;border-radius:10px;padding:8px 4px;font-size:12px;font-weight:800;cursor:pointer;background:#fbe7ee;color:#a94d70}
+.item .bx button.p{background:var(--pink);color:#fff}
+.item .bx button.g{background:#e8f5ee;color:#2c7a54}
+.item .bx button.r{background:#fdecec;color:#c0392b}
+.item .badge{position:absolute;top:6px;right:6px;background:#fff;border-radius:8px;font-size:10px;font-weight:900;padding:3px 7px;color:#8a6a12}
+.tabs2{display:flex;gap:8px;margin:4px 0 12px}
+.tabs2 button{flex:1;border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:10px;font-weight:800;font-size:14px;color:#8a6d7b;cursor:pointer}
+.tabs2 button.on{border-color:var(--pink);background:#fdeaf1;color:#b5436b}
+
+/* ---------- makeup ---------- */
+.swatches{display:flex;flex-wrap:wrap;gap:8px}
+.dot{width:38px;height:38px;border-radius:50%;border:2px solid #fff;box-shadow:0 2px 8px rgba(120,80,100,.22);cursor:pointer;position:relative}
+.dot.on{outline:3px solid var(--pink);outline-offset:2px}
+.look{
+  border:1px solid var(--line);background:#fff;border-radius:16px;padding:10px 14px;font-weight:800;font-size:13px;color:#7a5c6a;cursor:pointer;
+}
+.look.on{border-color:var(--pink);background:#fdeaf1;color:#b5436b}
+
+/* ---------- outings ---------- */
+.dests{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dest{
+  border:1px solid var(--line);background:#fff;border-radius:20px;padding:14px;cursor:pointer;
+  display:flex;flex-direction:column;gap:6px;text-align:center;box-shadow:0 3px 10px rgba(180,120,150,.07);
+}
+.dest .em{font-size:34px}
+.dest .nm{font-weight:800;font-size:14px}
+.dest .sb{font-size:11.5px;color:var(--muted)}
+.bed{
+  position:relative;border-radius:20px;background:linear-gradient(#fff,#f6eef1);border:1px solid var(--line);
+  padding:16px 12px 12px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;
+}
+.bed .slot{background:#fff;border:1px dashed #e5c9d4;border-radius:14px;min-width:74px;padding:8px;text-align:center;font-size:11px;color:var(--muted)}
+.bed .slot b{display:block;font-size:12px;color:var(--ink);margin-top:2px}
+.bed .pillow2{position:absolute;top:6px;left:50%;transform:translateX(-50%);font-size:20px;opacity:.5}
+
+/* ---------- album ---------- */
+.photos{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.photo{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow)}
+.photo .im{height:110px;display:grid;place-items:center;font-size:42px;background:linear-gradient(160deg,#ffe9f1,#f4dbe6)}
+.photo .cap{padding:8px 10px;font-size:12px;line-height:1.5}
+.photo .cap b{display:block}
+.photo .del{border:0;background:#fdecec;color:#c0392b;font-weight:800;font-size:11px;width:100%;padding:7px;cursor:pointer}
+
+/* ---------- features ---------- */
+.feat{display:flex;align-items:center;gap:10px;padding:11px 2px;border-bottom:1px dashed var(--line);font-size:14px}
+.feat:last-child{border-bottom:0}
+.feat .n{font-size:11px;color:var(--muted);width:34px;flex:none}
+.feat .sp{flex:1}
+.switch{width:46px;height:27px;border-radius:99px;background:#e7d7df;position:relative;border:0;cursor:pointer;flex:none;transition:background .2s}
+.switch:after{content:"";position:absolute;top:3px;right:3px;width:21px;height:21px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.2);transition:transform .2s}
+.switch.on{background:var(--green)}
+.switch.on:after{transform:translateX(-19px)}
+.count{font-size:34px;font-weight:900;color:var(--pink);line-height:1.1}
+.toast{
+  position:fixed;left:50%;bottom:96px;transform:translate(-50%,20px);background:#3c2b35;color:#fff;
+  padding:12px 18px;border-radius:14px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;
+  transition:all .25s ease;z-index:60;max-width:92%;
+}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+<div id="app">
+  <header class="top">
+    <div class="brand">بيتنا <span>الصغير</span></div>
+    <div class="spacer"></div>
+    <div class="pill gold" id="coins">🪙 0</div>
+    <div class="pill" id="lvl">⭐ 1</div>
+  </header>
+  <main id="screen"></main>
+</div>
+<nav class="tabs hidden" id="tabs"><div class="inner"></div></nav>
+<div class="toast" id="toast"></div>
+<script>
+"use strict";
+/* ================= helpers ================= */
+const $ = s => document.querySelector(s);
+const KEY = "momgame.v1";
+const rand = a => a[Math.floor(Math.random()*a.length)];
+const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+const COLORS = [
+  {id:"rose",   n:"وردي",       h:"#ef8fae"},
+  {id:"pink",   n:"فوشيا",      h:"#dd5a97"},
+  {id:"red",    n:"أحمر",       h:"#d84a4a"},
+  {id:"burgundy",n:"نبيتي",     h:"#8e3b4f"},
+  {id:"purple", n:"بنفسجي",     h:"#9a6bd4"},
+  {id:"blue",   n:"أزرق",       h:"#5b8fd6"},
+  {id:"navy",   n:"كحلي",       h:"#39456b"},
+  {id:"teal",   n:"تركواز",     h:"#3fb2a8"},
+  {id:"green",  n:"أخضر",       h:"#66a96b"},
+  {id:"yellow", n:"أصفر",       h:"#e8c34a"},
+  {id:"orange", n:"برتقالي",    h:"#ef9450"},
+  {id:"black",  n:"أسود",       h:"#3a3d46"},
+  {id:"white",  n:"أبيض",       h:"#faf6ee"},
+  {id:"beige",  n:"بيج",        h:"#d9c3a2"}
+];
+const colorOf = id => COLORS.find(c=>c.id===id) || COLORS[0];
+
+const SEASONS = {summer:"الصيف", winter:"الشتاء", spring:"الربيع", autumn:"الخريف"};
+const SEASON_EM = {summer:"☀️", winter:"❄️", spring:"🌸", autumn:"🍂"};
+function seasonNow(){
+  const m = new Date().getMonth()+1;
+  if([12,1,2].includes(m)) return "winter";
+  if([3,4,5].includes(m)) return "spring";
+  if([6,7,8].includes(m)) return "summer";
+  return "autumn";
+}
+const seasonName = s => SEASONS[s] || "";
+
+/* ================= catalogue ================= */
+const KINDS = [
+  {cat:"dress", kind:"short",  n:"فستان قصير",        w:"light", p:45},
+  {cat:"dress", kind:"midi",   n:"فستان نص طويل",     w:"light", p:55},
+  {cat:"dress", kind:"long",   n:"فستان طويل",        w:"light", p:65},
+  {cat:"dress", kind:"shortH", n:"فستان قصير ثقيل",   w:"heavy", p:60},
+  {cat:"dress", kind:"midiH",  n:"فستان نص طويل ثقيل",w:"heavy", p:70},
+  {cat:"dress", kind:"longH",  n:"فستان طويل ثقيل",   w:"heavy", p:85},
+  {cat:"top",   kind:"blouse", n:"بلوزة",             w:"light", p:30},
+  {cat:"top",   kind:"sweater",n:"سويتر صوف",         w:"heavy", p:40},
+  {cat:"bottom",kind:"skirt",  n:"جيبة",              w:"light", p:30},
+  {cat:"bottom",kind:"wide",   n:"بنطلون واسع",       w:"light", p:35},
+  {cat:"bottom",kind:"jeans",  n:"جينز",              w:"heavy", p:40},
+  {cat:"shoes", kind:"heels",  n:"كعب",               w:"light", p:35},
+  {cat:"shoes", kind:"flats",  n:"باليرينا",          w:"light", p:25},
+  {cat:"shoes", kind:"sneakers",n:"سنيكرز",           w:"all",   p:30},
+  {cat:"shoes", kind:"boots",  n:"بوت",               w:"heavy", p:45},
+  {cat:"shoes", kind:"sandals",n:"صندل",              w:"light", p:25},
+  {cat:"bag",   kind:"hand",   n:"شنطة يد",           w:"all",   p:40},
+  {cat:"bag",   kind:"tote",   n:"شنطة كتف",          w:"all",   p:35},
+  {cat:"bag",   kind:"clutch", n:"كلاتش",             w:"all",   p:30},
+  {cat:"bag",   kind:"backpack",n:"شنطة ظهر",         w:"all",   p:35},
+  {cat:"acc",   kind:"headband",n:"طوق شعر",          w:"all",   p:15},
+  {cat:"acc",   kind:"necklace",n:"عقد",              w:"all",   p:20},
+  {cat:"acc",   kind:"earrings",n:"حلق",              w:"all",   p:20},
+  {cat:"acc",   kind:"sunglasses",n:"نظارة شمس",      w:"all",   p:18},
+  {cat:"acc",   kind:"scarf",  n:"إيشارب",            w:"all",   p:22},
+  {cat:"acc",   kind:"gloves", n:"جوانتي",            w:"heavy", p:18}
+];
+const CAT_NAMES = {dress:"فساتين", top:"بلوزات", bottom:"بنطلونات وجيبات", shoes:"أحذية", bag:"شنط", acc:"إكسسوارات"};
+
+const BABY_KINDS = [
+  {kind:"onesie", n:"أفرول بيبي",  w:"light", p:30},
+  {kind:"suit",   n:"طقم بيبي",    w:"heavy", p:40},
+  {kind:"dressB", n:"فستان بيبي",  w:"light", p:35},
+  {kind:"pajama", n:"بيجامة بيبي", w:"heavy", p:32},
+  {kind:"hat",    n:"طاقية بيبي",  w:"all",   p:15},
+  {kind:"bootie", n:"جزم بيبي",    w:"all",   p:18}
+];
+
+function buildCatalogue(){
+  const G = [];
+  for(const k of KINDS){
+    for(const c of COLORS){
+      G.push({id:k.kind+"_"+c.id, cat:k.cat, kind:k.kind, name:k.n, color:c.id, w:k.w, p:k.p + (c.id==="white"?5:0)});
+    }
+  }
+  return G;
+}
+const GARMENTS = buildCatalogue();
+function babyCatalogue(){
+  const B=[];
+  for(const k of BABY_KINDS){
+    for(const c of COLORS){
+      B.push({id:"b_"+k.kind+"_"+c.id, cat:"baby", kind:k.kind, name:k.n, color:c.id, w:k.w, p:k.p});
+    }
+  }
+  return B;
+}
+const BABY_ITEMS = babyCatalogue();
+const byId = id => GARMENTS.find(g=>g.id===id) || BABY_ITEMS.find(b=>b.id===id) || null;
+
+const LIPS = [
+  {id:"nude", n:"نود", h:"#c98a7f"}, {id:"rose", n:"وردي", h:"#d8697f"},
+  {id:"coral", n:"مرجاني", h:"#e07a5f"}, {id:"red", n:"أحمر كلاسيك", h:"#c0392b"},
+  {id:"berry", n:"توتي", h:"#9d3d5c"}, {id:"fuchsia", n:"فوشيا", h:"#cf3f84"},
+  {id:"plum", n:"برقوقي", h:"#7b3657"}, {id:"peach", n:"خوخي", h:"#ef9f93"},
+  {id:"brown", n:"بني دافئ", h:"#8a5a4a"}, {id:"gloss", n:"شفاف لامع", h:"#e9b9be"}
+];
+const EYES = [
+  {id:"none", n:"بدون", h:"transparent"}, {id:"nude", n:"بيج هادئ", h:"#d9b9a3"},
+  {id:"rose", n:"وردي", h:"#d98b9c"}, {id:"mauve", n:"موف", h:"#a97a9a"},
+  {id:"brown", n:"بني", h:"#8a6a52"}, {id:"gold", n:"ذهبي", h:"#c9a227"},
+  {id:"blue", n:"أزرق", h:"#6b9bd1"}, {id:"green", n:"أخضر", h:"#6aa77c"},
+  {id:"purple", n:"بنفسجي", h:"#8a6bbd"}, {id:"smokey", n:"سموكي", h:"#4d4550"}
+];
+const BLUSH = [
+  {id:"none", n:"بدون", h:"transparent"}, {id:"soft", n:"وردي ناعم", h:"#f2a7b8"},
+  {id:"peach", n:"خوخي", h:"#f3b090"}, {id:"coral", n:"مرجاني", h:"#eda093"},
+  {id:"berry", n:"توتي", h:"#d97a93"}, {id:"gold", n:"لمعة ذهبية", h:"#e8c98a"}
+];
+const NAILS = [
+  {id:"none", n:"طبيعي", h:"#f1c9bf"}, {id:"rose", n:"وردي", h:"#dd7f9a"},
+  {id:"red", n:"أحمر", h:"#c0392b"}, {id:"nude", n:"نود", h:"#d8b3a4"},
+  {id:"purple", n:"بنفسجي", h:"#8a6bbd"}, {id:"glitter", n:"جليتر", h:"#d9c36a"},
+  {id:"white", n:"فرنش", h:"#f6f0ea"}, {id:"black", n:"أسود", h:"#3a3d46"}
+];
+const HAIR_STYLES = [
+  {id:"long", n:"طويل منسدل"}, {id:"pony", n:"ديل حصان"}, {id:"bun", n:"كعكة"},
+  {id:"curls", n:"كيرلي"}, {id:"braid", n:"ضفيرة"}, {id:"bob", n:"بوب قصير"},
+  {id:"wavy", n:"مموج"}, {id:"half", n:"نصف مرفوع"}
+];
+const HAIR_COLORS = [
+  {id:"black", n:"أسود", h:"#2f2a2e"}, {id:"brown", n:"بني", h:"#5a3d2b"},
+  {id:"choco", n:"شوكولاتة", h:"#7a4a33"}, {id:"blonde", n:"بلوند", h:"#d3a96b"},
+  {id:"red", n:"أحمر نحاسي", h:"#a4502f"}, {id:"ash", n:"رمادي فاتح", h:"#b9a9a4"}
+];
+const SKIN = [
+  {id:"fair", n:"فاتح", h:"#f7d9c4"}, {id:"light", n:"قمحي فاتح", h:"#efc7a9"},
+  {id:"wheat", n:"قمحي", h:"#dda87f"}, {id:"tan", n:"برونزي", h:"#c08a5e"},
+  {id:"brown", n:"بني", h:"#9c6a45"}, {id:"deep", n:"بني غامق", h:"#6f4a30"}
+];
+const OUTFITS_PRESET = [
+  {id:"daily", n:"لوك يومي", lip:"rose", eye:"nude", blush:"soft", nails:"nude"},
+  {id:"evening", n:"لوك سهرة", lip:"red", eye:"smokey", blush:"berry", nails:"red"},
+  {id:"soft", n:"لوك ناعم", lip:"peach", eye:"rose", blush:"peach", nails:"rose"},
+  {id:"gold", n:"لوك ذهبي", lip:"brown", eye:"gold", blush:"gold", nails:"glitter"}
+];
+
+const DESTS = [
+  {id:"park", n:"الحديقة", em:"🌳", season:"spring", c:35},
+  {id:"mall", n:"المول", em:"🛍️", season:"all", c:40},
+  {id:"beach", n:"الشاطئ", em:"🏖️", season:"summer", c:45},
+  {id:"cafe", n:"الكافيه", em:"☕", season:"all", c:30},
+  {id:"restaurant", n:"المطعم", em:"🍽️", season:"all", c:40},
+  {id:"birthday", n:"حفلة عيد ميلاد", em:"🎂", season:"all", c:50},
+  {id:"grandma", n:"زيارة تيتا", em:"👵", season:"all", c:30},
+  {id:"zoo", n:"حديقة الحيوان", em:"🦁", season:"spring", c:40},
+  {id:"library", n:"المكتبة", em:"📚", season:"all", c:25},
+  {id:"cinema", n:"السينما", em:"🎬", season:"all", c:35},
+  {id:"farm", n:"المزرعة", em:"🐄", season:"autumn", c:40},
+  {id:"snow", n:"ملعب التزحلق", em:"⛷️", season:"winter", c:55},
+  {id:"doctor", n:"عيادة الأطفال", em:"🩺", season:"all", c:20},
+  {id:"picnic", n:"نزهة في الحديقة", em:"🧺", season:"autumn", c:35}
+];
+
+const CARE = [
+  {id:"feed", n:"رضاعة", em:"🍼", st:{hunger:-32, happy:6, energy:4}, c:12},
+  {id:"sleep", n:"نومة", em:"😴", st:{energy:35, happy:4}, c:10},
+  {id:"bath", n:"حمام", em:"🛁", st:{clean:38, happy:6}, c:12},
+  {id:"play", n:"لعب", em:"🧸", st:{happy:18, energy:-10, hunger:5}, c:14},
+  {id:"change", n:"تغيير حفاضة", em:"🧷", st:{clean:25, happy:5}, c:8},
+  {id:"massage", n:"تدليك", em:"💆‍♀️", st:{happy:10, energy:8}, c:10},
+  {id:"sing", n:"تهويدة", em:"🎵", st:{happy:12, energy:6}, c:9},
+  {id:"cuddle", n:"حضن", em:"🤱", st:{happy:14, hunger:3}, c:8}
+];
+
+const NURSERY = {
+  crib: {n:"سرير البيبي", items:[
+    {id:"white", n:"أبيض كلاسيك", h:"#fbf7f1"}, {id:"pink", n:"وردي", h:"#f3b7c9"},
+    {id:"mint", n:"نعناعي", h:"#bfe3d0"}, {id:"blue", n:"سماوي", h:"#bcd9f2"},
+    {id:"beige", n:"بيج", h:"#e6d3b8"}, {id:"gray", n:"رمادي", h:"#cfd3d8"}]},
+  wall: {n:"ديكور الحائط", items:[
+    {id:"stars", n:"نجوم", em:"⭐"}, {id:"moon", n:"قمر", em:"🌙"},
+    {id:"clouds", n:"سحاب", em:"☁️"}, {id:"balloons", n:"بالونات", em:"🎈"},
+    {id:"flowers", n:"ورد", em:"🌷"}, {id:"rainbow", n:"قوس قزح", em:"🌈"}]},
+  toy: {n:"لعبة مفضلة", items:[
+    {id:"bear", n:"دبدوب", em:"🧸"}, {id:"bunny", n:"أرنوب", em:"🐰"},
+    {id:"duck", n:"بطة", em:"🦆"}, {id:"car", n:"عربية", em:"🚗"},
+    {id:"doll", n:"عروسة", em:"🪆"}, {id:"ball", n:"كرة", em:"⚽"}]},
+  lamp: {n:"ضوء الليل", items:[
+    {id:"moon", n:"هلال", em:"🌙"}, {id:"star", n:"نجمة", em:"⭐"},
+    {id:"cloud", n:"سحابة", em:"☁️"}, {id:"heart", n:"قلب", em:"💗"}]}
+};
+
+/* ================= kitchen / bath / pets data ================= */
+const ZONES = {fridge:"الثلاجة", freezer:"الفريزر", pantry:"رف المؤن"};
+const INGREDIENTS = [
+  {id:"milk", n:"لبن", em:"🥛", p:8, zone:"fridge"},
+  {id:"cheese", n:"جبنة", em:"🧀", p:10, zone:"fridge"},
+  {id:"eggs", n:"بيض", em:"🥚", p:9, zone:"fridge"},
+  {id:"butter", n:"زبدة", em:"🧈", p:7, zone:"fridge"},
+  {id:"yoghurt", n:"زبادي", em:"🥣", p:8, zone:"fridge"},
+  {id:"strawberry", n:"فراولة", em:"🍓", p:12, zone:"fridge"},
+  {id:"banana", n:"موز", em:"🍌", p:7, zone:"fridge"},
+  {id:"mango", n:"مانجو", em:"🥭", p:15, zone:"fridge"},
+  {id:"orange", n:"برتقان", em:"🍊", p:8, zone:"fridge"},
+  {id:"tomato", n:"طماطم", em:"🍅", p:6, zone:"fridge"},
+  {id:"cucumber", n:"خيار", em:"🥒", p:5, zone:"fridge"},
+  {id:"chicken", n:"فراخ", em:"🍗", p:25, zone:"freezer"},
+  {id:"meat", n:"لحمة", em:"🥩", p:30, zone:"freezer"},
+  {id:"fish", n:"سمك", em:"🐟", p:22, zone:"freezer"},
+  {id:"frozenveg", n:"خضار مجمد", em:"🥦", p:12, zone:"freezer"},
+  {id:"icecream", n:"آيس كريم", em:"🍨", p:14, zone:"freezer"},
+  {id:"fries", n:"بطاطس مجمدة", em:"🍟", p:10, zone:"freezer"},
+  {id:"pasta", n:"مكرونة", em:"🍝", p:10, zone:"pantry"},
+  {id:"rice", n:"أرز", em:"🍚", p:9, zone:"pantry"},
+  {id:"flour", n:"دقيق", em:"🌾", p:8, zone:"pantry"},
+  {id:"sugar", n:"سكر", em:"🧂", p:6, zone:"pantry"},
+  {id:"oil", n:"زيت", em:"🫒", p:11, zone:"pantry"},
+  {id:"chocolate", n:"شوكولاتة", em:"🍫", p:12, zone:"pantry"},
+  {id:"coffee", n:"قهوة", em:"☕", p:13, zone:"pantry"},
+  {id:"tea", n:"شاي", em:"🍵", p:8, zone:"pantry"},
+  {id:"mint", n:"نعناع", em:"🌿", p:5, zone:"pantry"},
+  {id:"soda", n:"صودا", em:"🥤", p:7, zone:"pantry"},
+  {id:"honey", n:"عسل", em:"🍯", p:12, zone:"pantry"}
+];
+const RECIPES = [
+  {id:"bashamel", n:"مكرونة بشاميل", em:"🍝", type:"dish", need:{pasta:1, milk:1, cheese:1, chicken:1}, xp:12, c:18},
+  {id:"soup", n:"شوربة فراخ", em:"🍲", type:"dish", need:{chicken:1, frozenveg:1, milk:1}, xp:10, c:15},
+  {id:"salad", n:"سلطة خضرا", em:"🥗", type:"dish", need:{tomato:1, cucumber:1, oil:1}, xp:8, c:10},
+  {id:"cake", n:"كيك شوكولاتة", em:"🎂", type:"dish", need:{flour:1, sugar:1, eggs:1, butter:1, chocolate:1}, xp:15, c:25},
+  {id:"pancake", n:"بان كيك بالعسل", em:"🥞", type:"dish", need:{flour:1, eggs:1, milk:1, honey:1}, xp:12, c:18},
+  {id:"grillfish", n:"سمك مشوي", em:"🐟", type:"dish", need:{fish:1, oil:1, tomato:1}, xp:14, c:22},
+  {id:"ricechick", n:"أرز بالخلطة", em:"🍛", type:"dish", need:{rice:1, chicken:1, oil:1}, xp:12, c:18},
+  {id:"friesdish", n:"بطاطس مقلية", em:"🍟", type:"dish", need:{fries:1, oil:1}, xp:7, c:10},
+  {id:"icefruit", n:"آيس كريم فراولة", em:"🍨", type:"dish", need:{icecream:1, strawberry:1}, xp:7, c:12},
+  {id:"mangojuice", n:"عصير مانجو", em:"🥤", type:"drink", need:{mango:1, milk:1}, xp:7, c:10},
+  {id:"smoothie", n:"سموذي فراولة", em:"🍓", type:"drink", need:{strawberry:1, milk:1, banana:1}, xp:8, c:12},
+  {id:"mojito", n:"موهيتو", em:"🍹", type:"drink", need:{mint:1, soda:1, orange:1}, xp:9, c:14},
+  {id:"coffee", n:"قهوة باللبن", em:"☕", type:"drink", need:{coffee:1, milk:1}, xp:5, c:8},
+  {id:"tea", n:"شاي بالنعناع", em:"🍵", type:"drink", need:{tea:1, mint:1, sugar:1}, xp:5, c:8}
+];
+const BATH_ACTS = [
+  {id:"shower", n:"دش بماء دافي", em:"🚿", c:15, xp:5},
+  {id:"face", n:"غسل الوجه", em:"🧼", c:8, xp:3},
+  {id:"hands", n:"غسل الإيدين", em:"🤲", c:6, xp:2},
+  {id:"teeth", n:"غسل الأسنان", em:"🪥", c:7, xp:3},
+  {id:"hair", n:"غسل الشعر", em:"🧴", c:12, xp:4},
+  {id:"skincare", n:"روتين بشرة", em:"🧖‍♀️", c:10, xp:4}
+];
+const PET_DEFS = [
+  {id:"cat", n:"قطة", em:"🐱", p:120},
+  {id:"dog", n:"كلب", em:"🐶", p:160},
+  {id:"rabbit", n:"أرنب", em:"🐰", p:90},
+  {id:"parrot", n:"ببغاء", em:"🦜", p:140},
+  {id:"turtle", n:"سلحفاة", em:"🐢", p:100},
+  {id:"fish", n:"سمكة", em:"🐠", p:75},
+  {id:"hamster", n:"هامستر", em:"🐹", p:85},
+  {id:"pony", n:"بوني", em:"🐴", p:320}
+];
+const PET_ITEMS = [
+  {id:"petfood", n:"أكل حيوانات", em:"🥫", p:6, cat:"food"},
+  {id:"ball", n:"كرة", em:"⚽", p:20, cat:"toy"},
+  {id:"bone", n:"عظمة", em:"🦴", p:15, cat:"toy"},
+  {id:"yarn", n:"خيط صوف", em:"🧶", p:18, cat:"toy"},
+  {id:"mouse", n:"لعبة فأر", em:"🐭", p:20, cat:"toy"},
+  {id:"bubbles", n:"فقاعات", em:"🫧", p:22, cat:"toy"},
+  {id:"ring", n:"حلقة", em:"🪀", p:18, cat:"toy"},
+  {id:"bow", n:"فيونكة", em:"🎀", p:20, cat:"acc"},
+  {id:"collar", n:"طوق", em:"🟣", p:18, cat:"acc"},
+  {id:"hat", n:"قبعة", em:"🎩", p:25, cat:"acc"},
+  {id:"jacket", n:"جاكيت", em:"🧥", p:30, cat:"acc"},
+  {id:"glasses", n:"نظارة", em:"🕶️", p:22, cat:"acc"},
+  {id:"bandana", n:"بندانة", em:"🧣", p:18, cat:"acc"},
+  {id:"house", n:"بيت خشبي", em:"🏠", p:60, cat:"decor"},
+  {id:"petbed", n:"سرير", em:"🛏️", p:40, cat:"decor"},
+  {id:"plant", n:"نبتة", em:"🪴", p:35, cat:"decor"},
+  {id:"fountain", n:"نافورة", em:"⛲", p:55, cat:"decor"},
+  {id:"slide", n:"زحليقة", em:"🛝", p:45, cat:"decor"},
+  {id:"tree", n:"شجرة", em:"🌳", p:50, cat:"decor"}
+];
+
+/* ---- baby corner: 184 new pieces ---- */
+const BABY_TOYS = [
+  {id:"t1",n:"دبدوب",em:"🧸",p:25},{id:"t2",n:"أرنبة",em:"🐰",p:22},{id:"t3",n:"عروسة",em:"🪆",p:24},
+  {id:"t4",n:"كورة",em:"⚽",p:18},{id:"t5",n:"مكعبات",em:"🧱",p:20},{id:"t6",n:"عربية",em:"🚗",p:30},
+  {id:"t7",n:"قطر",em:"🚂",p:35},{id:"t8",n:"طيارة",em:"✈️",p:32},{id:"t9",n:"صاروخ",em:"🚀",p:34},
+  {id:"t10",n:"سمكة",em:"🐟",p:16},{id:"t11",n:"بطة",em:"🦆",p:18},{id:"t12",n:"فيل",em:"🐘",p:24},
+  {id:"t13",n:"أسد",em:"🦁",p:24},{id:"t14",n:"زرافة",em:"🦒",p:26},{id:"t15",n:"ميكي",em:"🐭",p:22},
+  {id:"t16",n:"ديناصور",em:"🦖",p:28},{id:"t17",n:"وحيد قرن",em:"🦏",p:26},{id:"t18",n:"دلفين",em:"🐬",p:24},
+  {id:"t19",n:"فراشة",em:"🦋",p:17},{id:"t20",n:"نحلة",em:"🐝",p:17},{id:"t21",n:"قطة",em:"🐱",p:20},
+  {id:"t22",n:"كلب",em:"🐶",p:20},{id:"t23",n:"بقرة",em:"🐮",p:22},{id:"t24",n:"خروف",em:"🐑",p:22},
+  {id:"t25",n:"حصان",em:"🐴",p:28},{id:"t26",n:"بومة",em:"🦉",p:21},{id:"t27",n:"بطريق",em:"🐧",p:23},
+  {id:"t28",n:"ضفدع",em:"🐸",p:18},{id:"t29",n:"سلحفاة",em:"🐢",p:20},{id:"t30",n:"قرد",em:"🐵",p:22},
+  {id:"t31",n:"مكعب سحري",em:"🎲",p:19},{id:"t32",n:"يويو",em:"🪀",p:16},{id:"t33",n:"بازل",em:"🧩",p:26},
+  {id:"t34",n:"طبل",em:"🥁",p:27},{id:"t35",n:"بيانو",em:"🎹",p:38},{id:"t36",n:"جيتار",em:"🎸",p:34},
+  {id:"t37",n:"زمارة",em:"🪈",p:18},{id:"t38",n:"خشخيشة",em:"🪇",p:15},{id:"t39",n:"جرس",em:"🔔",p:14},
+  {id:"t40",n:"عربة بيبي",em:"🛒",p:40},{id:"t41",n:"دراجة",em:"🚲",p:42},{id:"t42",n:"سكوتر",em:"🛴",p:36},
+  {id:"t43",n:"مرجيحة",em:"🛝",p:38},{id:"t44",n:"خيمة",em:"⛺",p:44},{id:"t45",n:"بيت لعبة",em:"🏠",p:48},
+  {id:"t46",n:"كورة سلة",em:"🏀",p:24},{id:"t47",n:"كورة قدم",em:"🥅",p:24},{id:"t48",n:"راكيت",em:"🏓",p:22},
+  {id:"t49",n:"بلياردو صغير",em:"🎱",p:26},{id:"t50",n:"عجلة ألوان",em:"🎡",p:30},{id:"t51",n:"دولاب فرح",em:"🎠",p:32},
+  {id:"t52",n:"بالونات",em:"🎈",p:12},{id:"t53",n:"فقاعات",em:"🫧",p:12},{id:"t54",n:"طائرة ورق",em:"🪁",p:14},
+  {id:"t55",n:"بندقية فقاعات",em:"🔫",p:20},{id:"t56",n:"ساعة ألوان",em:"⌚",p:18},{id:"t57",n:"تلسكوب",em:"🔭",p:34},
+  {id:"t58",n:"ميكروسكوب",em:"🔬",p:40},{id:"t59",n:"كاميرا لعبة",em:"📷",p:30},{id:"t60",n:"صندوق كنز",em:"🧰",p:28}
+];
+const BABY_FOODS = [
+  {id:"f1",n:"مهلبية",em:"🍮",p:10,h:24},{id:"f2",n:"أرز بلبن",em:"🍚",p:9,h:26},{id:"f3",n:"بطاطا مهروسة",em:"🥔",p:7,h:24},
+  {id:"f4",n:"شوربة خضار",em:"🍲",p:9,h:25},{id:"f5",n:"تفاح مهروس",em:"🍎",p:8,h:22},{id:"f6",n:"موز",em:"🍌",p:6,h:22},
+  {id:"f7",n:"أفوكادو",em:"🥑",p:12,h:24},{id:"f8",n:"كمثرى",em:"🍐",p:8,h:22},{id:"f9",n:"خوخ",em:"🍑",p:9,h:22},
+  {id:"f10",n:"مانجو",em:"🥭",p:12,h:24},{id:"f11",n:"بطيخ",em:"🍉",p:7,h:23},{id:"f12",n:"فراولة",em:"🍓",p:8,h:22},
+  {id:"f13",n:"برتقال",em:"🍊",p:7,h:22},{id:"f14",n:"عنب",em:"🍇",p:9,h:23},{id:"f15",n:"رمان",em:"🍎",p:10,h:23},
+  {id:"f16",n:"تين",em:"🍈",p:10,h:23},{id:"f17",n:"مشمش",em:"🍑",p:9,h:22},{id:"f18",n:"خيار مهروس",em:"🥒",p:6,h:21},
+  {id:"f19",n:"كوسة",em:"🥒",p:7,h:23},{id:"f20",n:"جزر",em:"🥕",p:7,h:23},{id:"f21",n:"قرع",em:"🎃",p:9,h:25},
+  {id:"f22",n:"سبانخ",em:"🥬",p:8,h:24},{id:"f23",n:"بروكلي",em:"🥦",p:8,h:23},{id:"f24",n:"بسلة",em:"🫛",p:7,h:23},
+  {id:"f25",n:"ذرة",em:"🌽",p:7,h:24},{id:"f26",n:"عدس",em:"🥘",p:8,h:26},{id:"f27",n:"فول",em:"🫘",p:7,h:26},
+  {id:"f28",n:"حمص",em:"🫛",p:8,h:25},{id:"f29",n:"سمك مهروس",em:"🐟",p:14,h:27},{id:"f30",n:"دجاج مهروس",em:"🍗",p:14,h:27},
+  {id:"f31",n:"لحمة مهروسة",em:"🥩",p:16,h:28},{id:"f32",n:"كبدة",em:"🍖",p:13,h:27},{id:"f33",n:"بيض",em:"🥚",p:8,h:24},
+  {id:"f34",n:"جبنة",em:"🧀",p:9,h:24},{id:"f35",n:"زبادي",em:"🥣",p:8,h:24},{id:"f36",n:"لبن",em:"🥛",p:6,h:25},
+  {id:"f37",n:"عصير تفاح",em:"🧃",p:7,h:20},{id:"f38",n:"عصير برتقال",em:"🍊",p:7,h:20},{id:"f39",n:"عصير مانجو",em:"🥤",p:9,h:21},
+  {id:"f40",n:"بسكويت",em:"🍪",p:6,h:18},{id:"f41",n:"كيك",em:"🎂",p:10,h:20},{id:"f42",n:"بان كيك",em:"🥞",p:10,h:22},
+  {id:"f43",n:"مافن",em:"🧁",p:9,h:20},{id:"f44",n:"حليب بالتمر",em:"🍯",p:10,h:26}
+];
+const BABY_SONGS = [
+  {id:"s1",n:"نام يا حبيبي",em:"🌙",line:"نام يا حبيبي، نام وارتاح، بكرة الصبح ييجي ويفرحك"},
+  {id:"s2",n:"بطة بطة",em:"🦆",line:"بطة بطة، بطوطة، عاملة صوت في البطوطة"},
+  {id:"s3",n:"قطقوطة",em:"🐱",line:"قطقوطة بتنونو، جوه البيت مفيش حد يزوّعو"},
+  {id:"s4",n:"عصفور صغير",em:"🐦",line:"عصفور صغير طار من عشه، رجع تاني ياخد حضن أمه"},
+  {id:"s5",n:"قمر ونجوم",em:"⭐",line:"القمر بيضحك والنجوم بتعدّ، والبيبي بتنام على مهل"},
+  {id:"s6",n:"أرنبة",em:"🐰",line:"أرنبة بيضة بتاكل جزر، بتقفز قدام الباب الصبح بدري"},
+  {id:"s7",n:"دبدوب",em:"🧸",line:"دبدوب ناعم حضنه دافي، بيبات جنبي ويحرسني"},
+  {id:"s8",n:"شمس الصبح",em:"☀️",line:"الشمس طلعت وقالت صباح الخير، يلا نصحى ونبدأ أحلى يوم"},
+  {id:"s9",n:"مطر مطر",em:"🌧️",line:"مطر مطر شتي شتي، على الشباك طقطق وغنّي"},
+  {id:"s10",n:"سمكة ذهبية",em:"🐠",line:"سمكة ذهبية بتعوم في المية، وبتقول للبيبي باي باي"},
+  {id:"s11",n:"قطر بيقول تشو",em:"🚂",line:"قطر بيقول تشو تشو، واخدنا معاه مشوار حلو"},
+  {id:"s12",n:"عربية بيب بب",em:"🚗",line:"عربية بتبيب، ماشية ورايحة في الشارع قريب"},
+  {id:"s13",n:"نحلة صغيرة",em:"🐝",line:"نحلة صغيرة زززز، بتلم شهد من كل زهرة"},
+  {id:"s14",n:"فراشة ألوان",em:"🦋",line:"فراشة ألوان طايرة فوق، أجنحتها زي الحرير الرقيق"},
+  {id:"s15",n:"شجرة خضرا",em:"🌳",line:"شجرة خضرا في وش البيت، العصافير بتغني عليها"},
+  {id:"s16",n:"وردتي",em:"🌹",line:"وردتي وردتي، ريحتها حلوة زي حضن ماما"},
+  {id:"s17",n:"كعكة حلوة",em:"🎂",line:"كعكة حلوة فيها شمعة، انا نفسي اخد قطعة"},
+  {id:"s18",n:"معلقة وفنجان",em:"🥄",line:"معلقة صغيرة بتطقطق، يلا ناكل كل حاجة في الطبق"},
+  {id:"s19",n:"حذائي الجديد",em:"👟",line:"حذائي الجديد بيتقفل، ويلا نجري في الشارع بنقلة"},
+  {id:"s20",n:"بابا وماما",em:"👨‍👩‍👧",line:"بابا وماما جنبي، وفي حضنهم انا في أمان"},
+  {id:"s21",n:"حوض سمك",em:"🐟",line:"حوض السمك فيه فقاعات، والسمك بيلعب بالحركات"},
+  {id:"s22",n:"قوس قزح",em:"🌈",line:"قوس قزح بعد المطر، سبع ألوان بترسم فرح"},
+  {id:"s23",n:"تنة وتنة",em:"🍼",line:"تنة وتنة على النور، البيبي نامت من غير شرور"},
+  {id:"s24",n:"همسة",em:"🤫",line:"همسة همسة في ودنها، بحبك يا حياتي"},
+  {id:"s25",n:"ياسمين",em:"🌸",line:"ياسمين الشام بتفتح بابها، وبتقول للبيبي صباح الخير"},
+  {id:"s26",n:"ياليل",em:"🌜",line:"ياليل ياليل، قول للبيبي تنام وتريح"},
+  {id:"s27",n:"سحابة",em:"☁️",line:"سحابة بيضة بتعدي، بتحضن الشمس وبتنسى الدنيا"},
+  {id:"s28",n:"كتكوت",em:"🐤",line:"كتكوت أصفر بيقول كيكي، ورا الماما يمشي دقيقي"},
+  {id:"s29",n:"بقرة",em:"🐮",line:"بقرة بتقول مووو، لبنها يفيدنا كل يوم"},
+  {id:"s30",n:"ديك",em:"🐓",line:"ديك الصبح بيقول كوكو، يلا اصحى يا بيبي"},
+  {id:"s31",n:"فيل صغير",em:"🐘",line:"فيل صغير خرطومه طويل، بياخد جوازة بالعندقوش"},
+  {id:"s32",n:"زرافة",em:"🦒",line:"زرافة طويلة بتاكل من فوق، رقبتها بتوصل للسما"},
+  {id:"s33",n:"سنجاب",em:"🐿️",line:"سنجاب بيجمع بندق، وبيخبيهم في بيته وفوق"},
+  {id:"s34",n:"نور وعتمة",em:"💡",line:"نور نور دق في الباب، العتمة هربت مع الضباب"},
+  {id:"s35",n:"سنونو",em:"🐦",line:"سنونو جاي من بعيد، مقرح الصيف وعارف"},
+  {id:"s36",n:"ليلة",em:"🌌",line:"في الليل كل حاجة بتنام، والبيبي بتسرح في الأحلام"},
+  {id:"s37",n:"بحر",em:"🌊",line:"بحر واسع أزرق وجميل، والموج بيحتضن الرمل"},
+  {id:"s38",n:"مركب",em:"⛵",line:"مركب بياضة بتمشي في البحر، وريحها بتلعب بالشعر"},
+  {id:"s39",n:"نجمة",em:"🌟",line:"نجمة صغيرة عند الباب، بتضويل طريقي في الضباب"},
+  {id:"s40",n:"حلم حلو",em:"💭",line:"حلم حلو جاي في السكة، ياخد البيبي لحتة مبهجة"}
+];
+const BABY_ACTS = [
+  {id:"a1",n:"هدهدة",em:"🤱",h:8,e:2,c:0},{id:"a2",n:"زغزغة",em:"🤣",h:10,e:-2,c:0},
+  {id:"a3",n:"لعبة المرايا",em:"🪞",h:7,e:1,c:0},{id:"a4",n:"فقاعات",em:"🫧",h:8,e:-1,c:0},
+  {id:"a5",n:"استغماية",em:"🙈",h:9,e:0,c:0},{id:"a6",n:"رقصة",em:"💃",h:9,e:-2,c:0},
+  {id:"a7",n:"طيران",em:"🕊️",h:8,e:1,c:0},{id:"a8",n:"حضن كبير",em:"🤗",h:10,e:2,c:0},
+  {id:"a9",n:"قصة",em:"📖",h:7,e:1,c:0},{id:"a10",n:"أرجوحة",em:"🛝",h:9,e:-1,c:0},
+  {id:"a11",n:"تصفيق",em:"👏",h:7,e:0,c:0},{id:"a12",n:"عد الأصابع",em:"🖐️",h:6,e:1,c:0},
+  {id:"a13",n:"لعبة الألوان",em:"🎨",h:7,e:0,c:0},{id:"a14",n:"أصوات الحيوانات",em:"🔊",h:8,e:0,c:0},
+  {id:"a15",n:"تسمية الأشياء",em:"🏠",h:6,e:1,c:0},{id:"a16",n:"لمس الأشكال",em:"🔺",h:6,e:1,c:0},
+  {id:"a17",n:"لعبة المية",em:"💦",h:8,e:-2,c:-8},{id:"a18",n:"ترتيب مكعبات",em:"🧱",h:7,e:0,c:0},
+  {id:"a19",n:"فتح وقفل",em:"🔑",h:5,e:1,c:0},{id:"a20",n:"سحب العربية",em:"🚗",h:7,e:0,c:0},
+  {id:"a21",n:"كورة قدم",em:"⚽",h:9,e:-2,c:-4},{id:"a22",n:"رسم بالإصبع",em:"🖌️",h:7,e:0,c:-5},
+  {id:"a23",n:"عجين",em:"🫓",h:8,e:0,c:-6},{id:"a24",n:"تمشيط",em:"💇",h:6,e:1,c:2},
+  {id:"a25",n:"حكاية النوم",em:"🌙",h:6,e:2,c:0},{id:"a26",n:"تدليك",em:"💆",h:8,e:2,c:0},
+  {id:"a27",n:"تمرين الرجلين",em:"🦶",h:5,e:1,c:0},{id:"a28",n:"ضوء وظل",em:"🔦",h:7,e:0,c:0},
+  {id:"a29",n:"مشي في البيت",em:"🚶",h:6,e:-1,c:0},{id:"a30",n:"غناء",em:"🎤",h:8,e:1,c:0},
+  {id:"a31",n:"قفز",em:"🤸",h:8,e:-2,c:0},{id:"a32",n:"حكاية قبل النوم",em:"🛌",h:7,e:2,c:0},
+  {id:"a33",n:"بازل",em:"🧩",h:7,e:0,c:0},{id:"a34",n:"لعبة الأصابع",em:"☝️",h:6,e:0,c:0},
+  {id:"a35",n:"تكرار الكلام",em:"🗣️",h:6,e:0,c:0},{id:"a36",n:"مشاهدة العصافير",em:"🐦",h:7,e:1,c:0},
+  {id:"a37",n:"شم الورد",em:"🌹",h:6,e:1,c:0},{id:"a38",n:"لمس الأشياء الناعمة",em:"🧸",h:7,e:1,c:0},
+  {id:"a39",n:"عدّ النجوم",em:"✨",h:6,e:1,c:0},{id:"a40",n:"دعاء الصباح",em:"🌅",h:8,e:2,c:0}
+];
+
+/* ================= state ================= */
+function defaults(){
+  const season = seasonNow();
+  return {
+    v:1,
+    started:false,
+    momName:"", babyName:"", gender:"girl",
+    coins:320, xp:0,
+    skin:"light", hairStyle:"long", hairColor:"brown",
+    outfit:{dress:"midi_rose", top:null, bottom:null, shoes:"flats_white", bag:null,
+      acc:{} },
+    babyOutfit:"b_onesie_white",
+    makeup:{lip:null, eye:null, blush:null, nails:null, preset:null},
+    stats:{hunger:75, happy:82, energy:62, clean:78},
+    season, seasonAuto:true,
+    owned:["midi_rose","short_rose","long_pink","midi_blue","top_blouse_white","bottom_skirt_beige",
+      "shoes_flats_white","shoes_sneakers_white","bag_tote_beige","acc_headband_rose",
+      "b_onesie_white","b_onesie_rose","b_onesie_blue","b_hat_white","b_bootie_white"],
+    nursery:{crib:"pink", wall:"stars", toy:"bear", lamp:"moon"},
+    photos:[], diary:[], moments:0,
+    modules:{makeup:true, wardrobe:true, outings:true, nursery:true, album:true,
+      kitchen:true, bath:true, pets:true, store:true, babyCorner:true},
+    day:{key:dayKey(), tasks:{feed:0,play:0,out:0,bath:0,cook:0,pet:0}, cleared:false},
+    baby:{age:1, mood:"سعيدة"},
+    kitchen:{
+      fridge:{milk:1, cheese:1, eggs:1, strawberry:1, banana:1, mango:1, tomato:1},
+      freezer:{chicken:1, icecream:1},
+      pantry:{pasta:1, sugar:1, flour:1, mint:1, soda:1, tea:1, coffee:1, oil:1, rice:1},
+      dishes:[], drinks:[]
+    },
+    bath:{showers:0, faces:0, hands:0, teeth:0, hair:0, lastShower:""},
+    pets:[],
+    petItems:{petfood:2},
+    petHouse:{},
+    babyCorner:{toys:[], foods:{}, plays:0, songs:0, acts:0, lastSong:null}
+  };
+}
+function dayKey(){ const d=new Date(); return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate(); }
+function load(){
+  try{
+    const raw = localStorage.getItem(KEY);
+    if(!raw) return defaults();
+    const s = Object.assign(defaults(), JSON.parse(raw));
+    s.outfit = Object.assign(defaults().outfit, s.outfit||{});
+    s.outfit.acc = s.outfit.acc || {};
+    s.stats = Object.assign(defaults().stats, s.stats||{});
+    s.makeup = Object.assign(defaults().makeup, s.makeup||{});
+    s.modules = Object.assign(defaults().modules, s.modules||{});
+    s.nursery = Object.assign(defaults().nursery, s.nursery||{});
+    s.xp = +s.xp||0; s.coins = +s.coins||0;
+    if(s.day && s.day.key !== dayKey()) s.day = defaults().day;
+    if(!s.day) s.day = defaults().day;
+    s.day.tasks = Object.assign({feed:0,play:0,out:0,bath:0,cook:0,pet:0}, s.day.tasks||{});
+    s.kitchen = s.kitchen || {};
+    ["fridge","freezer","pantry"].forEach(k=>{ s.kitchen[k] = Object.assign({}, (s.kitchen[k]||{})); });
+    ["dishes","drinks"].forEach(k=>{ if(!Array.isArray(s.kitchen[k])) s.kitchen[k] = []; });
+    s.bath = Object.assign({showers:0, faces:0, hands:0, teeth:0, hair:0, lastShower:""}, s.bath||{});
+    if(!Array.isArray(s.pets)) s.pets = [];
+    s.petItems = Object.assign({}, s.petItems||{});
+    if(!s.petHouse || typeof s.petHouse!=="object") s.petHouse = {};
+    s.babyCorner = Object.assign({toys:[], foods:{}, plays:0, songs:0, acts:0, lastSong:null}, s.babyCorner||{});
+    if(!Array.isArray(s.babyCorner.toys)) s.babyCorner.toys = [];
+    if(!s.babyCorner.foods || typeof s.babyCorner.foods!=="object") s.babyCorner.foods = {};
+    return s;
+  }catch(e){ return defaults(); }
+}
+let S = load();
+function save(){ try{ localStorage.setItem(KEY, JSON.stringify(S)); }catch(e){} }
+
+function levelInfo(){
+  const lv = Math.floor(S.xp/100)+1;
+  return {lv, inLv:S.xp%100};
+}
+function addXp(n){
+  S.xp += n;
+  toast("+"+n+" خبرة ⭐");
+}
+function addCoins(n){ S.coins = Math.max(0, S.coins + n); }
+
+/* ================= toast ================= */
+let toastT=null;
+function toast(msg){
+  const t = $("#toast");
+  t.textContent = msg;
+  t.classList.add("on");
+  clearTimeout(toastT);
+  toastT = setTimeout(()=>t.classList.remove("on"), 1900);
+}
+
+/* ================= avatar svg ================= */
+function hairPath(style,color){
+  const c = color.h;
+  const paths = {
+    long:`<path d="M62 76 Q62 26 100 26 Q138 26 138 76 L142 168 Q120 176 100 170 Q80 176 58 168 Z" fill="${c}"/>`,
+    pony:`<path d="M62 76 Q62 26 100 26 Q138 26 138 76 L140 120 Q120 128 100 124 Q80 128 60 120 Z" fill="${c}"/><path d="M136 92 q26 12 22 56 q-2 22 -16 22 q-10 0 -8 -18 q4 -34 -8 -48 Z" fill="${c}"/>`,
+    bun:`<circle cx="100" cy="24" r="17" fill="${c}"/><path d="M64 78 Q64 30 100 30 Q136 30 136 78 L138 108 Q120 114 100 110 Q80 114 62 108 Z" fill="${c}"/>`,
+    curls:`<path d="M62 74 Q62 24 100 24 Q138 24 138 74 L138 96 q-8 6 -6 14 q-8 4 -14 -2 q-8 8 -18 2 q-10 6 -18 -2 q-8 6 -14 0 q2 -8 -6 -12 Z" fill="${c}"/>`,
+    braid:`<path d="M64 78 Q64 30 100 30 Q136 30 136 78 L138 112 Q120 118 100 114 Q80 118 62 112 Z" fill="${c}"/><path d="M134 104 q16 18 10 52 q-2 12 -10 10 q-6 -2 -4 -12 q6 -28 -4 -44 Z" fill="${c}"/>`,
+    bob:`<path d="M64 76 Q64 28 100 28 Q136 28 136 76 L138 112 Q120 118 100 114 Q80 118 62 112 Z" fill="${c}"/>`,
+    wavy:`<path d="M62 76 Q62 26 100 26 Q138 26 138 76 L144 164 q-10 8 -18 -2 q8 10 -2 16 q-10 6 -16 -4 q6 12 -6 14 q-10 2 -14 -8 q0 12 -12 10 q-10 -2 -8 -12 q-2 10 -12 6 q-8 -4 -4 -14 q-10 8 -16 0 Z" fill="${c}"/>`,
+    half:`<path d="M64 78 Q64 28 100 28 Q136 28 136 78 L136 104 Q120 110 100 106 Q80 110 64 104 Z" fill="${c}"/><path d="M130 96 q18 14 14 62 q-2 14 -12 12 q-8 -2 -6 -14 q4 -30 -6 -48 Z" fill="${c}"/>`
+  };
+  return paths[style]||paths.long;
+}
+function momSVG(){
+  const sk = SKIN.find(s=>s.id===S.skin)||SKIN[1];
+  const hc = HAIR_COLORS.find(h=>h.id===S.hairColor)||HAIR_COLORS[1];
+  const o = S.outfit;
+  const dress = o.dress? byId(o.dress) : null;
+  const top = o.top? byId(o.top):null, bottom = o.bottom? byId(o.bottom):null;
+  const shoes = o.shoes? byId(o.shoes):null, bag = o.bag? byId(o.bag):null;
+  const lip = S.makeup.lip? (LIPS.find(l=>l.id===S.makeup.lip)||{}).h : null;
+  const eye = S.makeup.eye? (EYES.find(l=>l.id===S.makeup.eye)||{}).h : null;
+  const blush = S.makeup.blush? (BLUSH.find(l=>l.id===S.makeup.blush)||{}).h : null;
+
+  let body = "", legs = "", sh = "";
+  let legY = 240;
+  const skin = sk.h;
+  if(dress){
+    const cc = colorOf(dress.color).h;
+    const heavy = dress.w==="heavy";
+    let hem = 214;
+    if(dress.kind.startsWith("short")) hem = 176;
+    else if(dress.kind.startsWith("midi")) hem = 196;
+    body = `<path d="M78 106 L122 106 L${Math.min(132)} 150 L${hem===176?"132":hem===196?"140":"148"} ${hem} Q100 ${hem+8} ${hem===176?"68":hem===196?"60":"52"} ${hem} L78 150 Z" fill="${cc}"/>`;
+    if(heavy) body += `<path d="M84 112 L116 112 L112 146 L88 146 Z" fill="rgba(255,255,255,.18)"/>`;
+    legY = hem + 2;
+    sh = heavy
+      ? `<path d="M78 108 q-16 6 -14 46 l14 2 q-2 -30 8 -38 Z" fill="${cc}"/><path d="M122 108 q16 6 14 46 l-14 2 q2 -30 -8 -38 Z" fill="${cc}"/>`
+      : "";
+  } else {
+    const tc = top? colorOf(top.color).h : "#e9d6df";
+    const bc = bottom? colorOf(bottom.color).h : "#cbb7c5";
+    body = `<path d="M80 106 L120 106 L124 164 L76 164 Z" fill="${tc}"/>`+
+           (bottom? `<path d="M76 158 L124 158 L128 ${bottom.kind==="jeans"?242:246} L110 ${bottom.kind==="jeans"?242:246} L100 182 L90 ${bottom.kind==="jeans"?242:246} L72 ${bottom.kind==="jeans"?242:246} Z" fill="${bc}"/>`
+                  : `<path d="M78 158 L122 158 L128 246 L110 246 L100 184 L90 246 L72 246 Z" fill="${bc}"/>`);
+  }
+  if(!dress) sh = "";
+
+  const shoesColor = shoes? colorOf(shoes.color).h : null;
+  const shoeC = shoesColor || skin;
+  const shoeY = 268;
+  return `
+  <svg width="200" height="320" viewBox="0 0 200 320" aria-label="شخصية الأم">
+    ${hairPath(S.hairStyle,hc)}
+    <rect x="93" y="98" width="14" height="16" rx="6" fill="${skin}"/>
+    <circle cx="100" cy="78" r="31" fill="${skin}"/>
+    <ellipse cx="100" cy="86" rx="24" ry="21" fill="${skin}"/>
+    ${eye && eye!=="transparent" ? `<ellipse cx="89" cy="76" rx="8" ry="4.5" fill="${eye}" opacity=".75"/><ellipse cx="111" cy="76" rx="8" ry="4.5" fill="${eye}" opacity=".75"/>`:""}
+    <ellipse cx="89" cy="80" rx="2.4" ry="3" fill="#3a2b32"/>
+    <ellipse cx="111" cy="80" rx="2.4" ry="3" fill="#3a2b32"/>
+    <circle cx="89.8" cy="79" r=".9" fill="#fff"/><circle cx="111.8" cy="79" r=".9" fill="#fff"/>
+    <path d="M86 68 q4 -3 8 0" stroke="#4a353f" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    <path d="M106 68 q4 -3 8 0" stroke="#4a353f" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    ${blush && blush!=="transparent" ? `<ellipse cx="84" cy="88" rx="7" ry="4.5" fill="${blush}" opacity=".55"/><ellipse cx="116" cy="88" rx="7" ry="4.5" fill="${blush}" opacity=".55"/>`:""}
+    ${lip ? `<path d="M93 92 q7 6 14 0 q-7 3 -14 0Z" fill="${lip}"/>` : `<path d="M94 92 q6 4 12 0" stroke="#b97e83" stroke-width="1.6" fill="none" stroke-linecap="round"/>`}
+    ${o.acc && o.acc.headband ? `<path d="M70 66 q30 -20 60 0 q-30 -8 -60 0Z" fill="${colorOf((byId(o.acc.headband)||{}).color||"rose").h}"/>`:""}
+    ${o.acc && o.acc.earrings ? `<circle cx="69" cy="88" r="2.6" fill="#e2bd58"/><circle cx="131" cy="88" r="2.6" fill="#e2bd58"/>`:""}
+    ${o.acc && o.acc.sunglasses ? `<rect x="78" y="72" width="18" height="11" rx="4" fill="#3a3d46"/><rect x="104" y="72" width="18" height="11" rx="4" fill="#3a3d46"/><rect x="96" y="75" width="8" height="2" fill="#3a3d46"/>`:""}
+    ${body}
+    ${sh}
+    ${o.acc && o.acc.necklace ? `<path d="M90 112 q10 9 20 0" stroke="#d9b34a" stroke-width="2" fill="none"/><circle cx="100" cy="119" r="2.4" fill="#d9b34a"/>`:""}
+    <rect x="88" y="${legY}" width="9" height="${274-legY}" rx="4" fill="${skin}"/><rect x="103" y="${legY}" width="9" height="${274-legY}" rx="4" fill="${skin}"/>
+    <ellipse cx="90" cy="${shoeY}" rx="14" ry="6" fill="${shoeC}"/>
+    <ellipse cx="110" cy="${shoeY}" rx="14" ry="6" fill="${shoeC}"/>
+    ${bag? `<g><path d="M136 150 q18 4 14 30 q-2 12 -14 10 Z" fill="${colorOf(bag.color).h}"/><path d="M138 150 q6 -14 14 -2" stroke="${colorOf(bag.color).h}" stroke-width="2.4" fill="none"/></g>`:""}
+    ${o.acc && o.acc.gloves ? `<rect x="70" y="146" width="10" height="22" rx="4" fill="${colorOf((byId(o.acc.gloves)||{}).color||"black").h}"/><rect x="120" y="146" width="10" height="22" rx="4" fill="${colorOf((byId(o.acc.gloves)||{}).color||"black").h}"/>`:""}
+    ${o.acc && o.acc.scarf ? `<path d="M78 106 q22 10 44 0 l-4 10 q-18 6 -36 0 Z" fill="${colorOf((byId(o.acc.scarf)||{}).color||"red").h}" opacity=".9"/>`:""}
+  </svg>`;
+}
+
+function babySVG(size){
+  const items = BABY_ITEMS.find(b=>b.id===S.babyOutfit);
+  const c = items? colorOf(items.color).h : (S.gender==="girl" ? "#f3b7c9" : "#bcd9f2");
+  const sk = SKIN.find(s=>s.id===S.skin)||SKIN[1];
+  const w = size||170;
+  return `<svg width="${w}" height="${Math.round(w*0.85)}" viewBox="0 0 170 145">
+    <ellipse cx="85" cy="112" rx="66" ry="22" fill="${c}" opacity=".5"/>
+    <path d="M38 110 q-6 -54 47 -54 q53 0 47 54 q-24 14 -47 14 q-23 0 -47 -14Z" fill="${c}"/>
+    <circle cx="85" cy="52" r="25" fill="${sk.h}"/>
+    <circle cx="76" cy="50" r="2" fill="#3a2b32"/><circle cx="94" cy="50" r="2" fill="#3a2b32"/>
+    <path d="M80 61 q5 4 10 0" stroke="#b97e83" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+    <path d="M70 34 q6 -9 14 -3 q6 -7 14 2" stroke="#6b4b3a" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M52 100 q8 -6 14 0" stroke="${sk.h}" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <path d="M118 100 q-8 -6 -14 0" stroke="${sk.h}" stroke-width="6" fill="none" stroke-linecap="round"/>
+  </svg>`;
+}
+
+/* ================= header / tabs ================= */
+function paintChrome(){
+  const lv = levelInfo();
+  $("#coins").textContent = "🪙 " + S.coins;
+  $("#lvl").textContent = "⭐ " + lv.lv;
+  const tabs = $("#tabs");
+  if(!S.started || S.view==="start" || S.view==="hospital"){ tabs.classList.add("hidden"); return; }
+  tabs.classList.remove("hidden");
+  const list = [
+    ["home","🏠","البيت", true],
+    ["wardrobe","👗","الدولاب", S.modules.wardrobe],
+    ["kitchen","🍳","المطبخ", S.modules.kitchen],
+    ["pets","🐾","الحيوانات", S.modules.pets],
+    ["store","🛒","المتجر", S.modules.store]
+  ].filter(x=>x[3]);
+  list.push(["features","✨","الميزات", true]);
+  const inner = tabs.firstElementChild;
+  inner.innerHTML = list.map(([id,em,label])=>
+    `<button data-view="${id}" class="${S.view===id?"on":""}"><span class="i">${em}</span>${label}</button>`).join("");
+  [...inner.children].forEach(b=>b.onclick=()=>go(b.dataset.view));
+}
+function go(view){ S.view = view; save(); render(); window.scrollTo(0,0); }
+
+/* ================= screens ================= */
+function render(){
+  paintChrome();
+  const r = {
+    start:viewStart, hospital:viewHospital, home:viewHome, wardrobe:viewWardrobe,
+    makeup:viewMakeup, outings:viewOutings, nursery:viewNursery, album:viewAlbum,
+    kitchen:viewKitchen, bath:viewBath, pets:viewPets, store:viewStore,
+    babyCorner:viewBabyCorner,
+    features:viewFeatures, settings:viewSettings
+  }[S.view||"home"];
+  if(!r){ S.view="home"; return render(); }
+  $("#screen").innerHTML = r();
+  bind();
+}
+
+/* ---------- start ---------- */
+function viewStart(){
+  return `
+  <div class="hero">
+    <div class="logo">👩‍🍼👶</div>
+    <h1>بيتنا الصغير</h1>
+    <p>أم جديدة، بيبي في المستشفى، ودولاب مليان حاجات حلوة 🌸</p>
+  </div>
+  <div class="card">
+    <div class="field">
+      <label>اسمك الجديد إيه؟</label>
+      <input id="inMom" maxlength="18" placeholder="مثال: أم ليان" value="${esc(S.momName||"")}">
+    </div>
+    <div class="field">
+      <label>البيبي جاية ولا جاي؟</label>
+      <div class="gender">
+        <button type="button" data-g="girl" class="${S.gender==="girl"?"on":""}"><span class="em">👶🎀</span>بنت</button>
+        <button type="button" data-g="boy" class="${S.gender==="boy"?"on":""}"><span class="em">👶💙</span>ولد</button>
+      </div>
+    </div>
+    <div class="field">
+      <label>اسم البيبي</label>
+      <input id="inBaby" maxlength="18" placeholder="مثال: ليان" value="${esc(S.babyName||"")}">
+    </div>
+    <button class="btn big" id="startBtn">يلا ندخل المستشفى 🏥</button>
+    <p class="muted" style="text-align:center;margin:12px 0 0">كل حاجة بتتحفظ لوحدها على الموبايل بتاعك.</p>
+  </div>`;
+}
+
+/* ---------- hospital ---------- */
+function viewHospital(){
+  return `
+  <div class="card" style="margin-top:8px;padding:14px">
+    <h2 class="sec" style="margin-top:2px">غرفة الولادة <small>اليوم الأول</small></h2>
+    <div class="hosp" id="hospScene">
+      <div class="cross">✚</div>
+      <div class="window"></div>
+      <span class="spark" style="top:120px;left:60px">✨</span>
+      <span class="spark" style="top:70px;left:200px;animation-delay:.7s">✨</span>
+      <span class="spark" style="top:170px;left:230px;animation-delay:1.3s">✨</span>
+      <div class="nurse">👩‍⚕️</div>
+      <div class="bed">
+        <div class="legs"></div>
+        <div class="mattress"></div>
+        <div class="pillow"></div>
+        <div class="baby">👶</div>
+      </div>
+    </div>
+    <p class="muted" style="text-align:center;margin:12px 0">
+      ألف مبروك يا ${esc(S.momName||"أم")}! ${esc(S.babyName||"البيبي")} ${S.gender==="girl"?"جت":"جاء"} بالسلامة 💗
+    </p>
+    <button class="btn big" id="homeBtn">نروح البيت 🏡</button>
+  </div>`;
+}
+
+/* ---------- home ---------- */
+function statBar(label, val, color){
+  return `<div class="stat"><div class="lab"><span>${label}</span><span>${Math.round(val)}%</span></div>
+    <div class="bar"><i style="width:${clamp(val,0,100)}%;background:${color}"></i></div></div>`;
+}
+function tasksDoneCount(){
+  const t = S.day.tasks;
+  return ["feed","play","out","bath","cook","pet"].filter(k=>(t[k]||0)>=1).length;
+}
+function viewHome(){
+  const lv = levelInfo();
+  const s = S.stats;
+  const outfitTxt = S.outfit.dress? (byId(S.outfit.dress)||{}).name : (S.outfit.top? "بلوزة وبطلون" : "لسه مطلّعتش لبس");
+  const todays = S.outfit.dress? (byId(S.outfit.dress)||{}):null;
+  const t = S.day.tasks;
+  const tasks = [
+    ["feed","رضّعتي البيبي", t.feed||0],
+    ["play","لعبتي مع البيبي", t.play||0],
+    ["bath","استحمى البيبي", t.bath||0],
+    ["out","خرجتي خروجة", t.out||0],
+    ["cook","طبختي أكل أو مشروب", t.cook||0],
+    ["pet","اعتنيتي بحيوان", t.pet||0]
+  ];
+  const rooms = [
+    ["wardrobe","👗","الدولاب","اللبس", S.modules.wardrobe],
+    ["makeup","💄","المكياج","لوكات", S.modules.makeup],
+    ["kitchen","🍳","المطبخ","طبخ ومكونات", S.modules.kitchen],
+    ["bath","🚿","الحمام","دش وغسيل", S.modules.bath],
+    ["pets","🐾","حديقة الحيوانات","شراء وتربية", S.modules.pets],
+    ["babyCorner","🧸","ركن البيبي","ألعاب وأكل وأغاني", S.modules.babyCorner],
+    ["store","🛒","المتجر","كل المستلزمات", S.modules.store],
+    ["outings","🚗","الخروجات","خروج وصور", S.modules.outings],
+    ["nursery","🛏️","الحضانة","تزيين الغرفة", S.modules.nursery],
+    ["album","📸","الألبوم","صور ويوميات", S.modules.album]
+  ].filter(r=>r[4]);
+  return `
+  <div class="room" style="margin-top:6px">
+    <div class="bubble">صباح الخير يا ${esc(S.momName||"أم")} 🌸<br>${esc(S.babyName||"البيبي")} ${S.baby.mood||"سعيدة"} وعايزة حضن</div>
+    <div class="avatar-wrap">${momSVG()}</div>
+  </div>
+
+  <div class="card" style="margin-top:12px">
+    <div class="row">
+      <div style="font-size:34px">👶</div>
+      <div class="grow">
+        <b>${esc(S.babyName||"البيبي")}</b>
+        <div class="muted">${S.gender==="girl"?"بنت":"ولد"} · عمره ${S.baby.age||1} يوم · ${SEASON_EM[S.season]} ${seasonName(S.season)}</div>
+      </div>
+      <button class="btn soft" id="babyRoomBtn" style="padding:10px 12px">الحضانة</button>
+    </div>
+    <div style="margin-top:10px">
+      ${statBar("الشبع 🍼", s.hunger, "#e9a24c")}
+      ${statBar("السعادة 💗", s.happy, "#e26a92")}
+      ${statBar("الطاقة ⚡", s.energy, "#5b8fd6")}
+      ${statBar("النظافة 🫧", s.clean, "#3fb2a8")}
+    </div>
+  </div>
+
+  <h2 class="sec">أوضة أوضة <small>دوسي على المكان اللي تحبيه</small></h2>
+  <div class="grid3">
+    ${rooms.map(([id,em,n,d])=>`<button class="act" data-view="${id}"><span class="i">${em}</span>${n}<span class="muted" style="font-size:11px;display:block;margin-top:2px">${d}</span></button>`).join("")}
+  </div>
+
+  <h2 class="sec">رعاية البيبي <small>كل حاجة بتديك فلوس وخبرة</small></h2>
+  <div class="grid3">
+    ${CARE.map(c=>`<button class="act" data-care="${c.id}"><span class="i">${c.em}</span>${c.n}</button>`).join("")}
+  </div>
+
+  <h2 class="sec">مهام النهارده <small>${tasksDoneCount()}/6</small></h2>
+  <div class="card">
+    ${tasks.map(([k,label,n])=>`<div class="task ${n?"done":""}"><div class="tick">${n?"✓":""}</div><div class="tx">${label}</div><div class="muted">${n?"خلصت ✓":"لسه"}</div></div>`).join("")}
+    ${tasksDoneCount()===6 && !S.day.cleared ? `<button class="btn big" id="claimBtn" style="margin-top:10px">استلمي مكافأة اليوم 🎁</button>`:""}
+  </div>
+
+  <h2 class="sec">سرير التجهيز <small>لبس النهارده</small></h2>
+  <div class="card">
+    <div class="bed">
+      <div class="pillow2">🛏️</div>
+      <div class="slot">${todays?`<b style="color:${colorOf(todays.color).h}">${todays.name}</b>`:"—"}<br>فستان</div>
+      <div class="slot">${S.outfit.shoes?`<b>${(byId(S.outfit.shoes)||{}).name||"حذاء"}</b>`:"—"}<br>حذاء</div>
+      <div class="slot">${S.outfit.bag?`<b>${(byId(S.outfit.bag)||{}).name||"شنطة"}</b>`:"—"}<br>شنطة</div>
+      <div class="slot">${S.makeup.preset?`<b>${(OUTFITS_PRESET.find(p=>p.id===S.makeup.preset)||{}).n||""}</b>`:"—"}<br>مكياج</div>
+    </div>
+    <p class="muted" style="text-align:center;margin:10px 0 0">${outfitTxt}</p>
+    <div class="row" style="margin-top:10px">
+      <button class="btn ghost grow" data-view="wardrobe">افتحي الدولاب 👗</button>
+      <button class="btn ghost grow" data-view="makeup">المكياج 💄</button>
+    </div>
+  </div>
+
+  <h2 class="sec">نظرة سريعة</h2>
+  <div class="card">
+    <div class="row"><div class="grow muted">المستوى</div><b>${lv.lv}</b></div>
+    <div class="bar" style="margin:6px 0 12px"><i style="width:${lv.inLv}%;background:var(--gold)"></i></div>
+    <div class="row"><div class="grow muted">لحظات سعيدة</div><b>${S.moments}</b></div>
+    <div class="row" style="margin-top:10px"><div class="grow muted">صور في الألبوم</div><b>${S.photos.length}</b></div>
+    <div class="row" style="margin-top:10px"><div class="grow muted">موسم التطبيق</div><b>${seasonName(S.season)}</b></div>
+    <button class="btn soft" id="setBtn" style="margin-top:12px;width:100%">الإعدادات ⚙️</button>
+  </div>`;
+}
+
+/* ---------- wardrobe ---------- */
+let wf = {who:"mom", cat:"dress", season:null};
+function viewWardrobe(){
+  wf.season = wf.season || (S.seasonAuto? S.season : "all");
+  const who = wf.who;
+  const cats = who==="mom"
+    ? ["dress","top","bottom","shoes","bag","acc"]
+    : ["baby"];
+  if(!cats.includes(wf.cat)) wf.cat = cats[0];
+  const pool = (who==="mom"?GARMENTS:BABY_ITEMS).filter(g=>g.cat===wf.cat);
+  const filtered = pool.filter(g=>{
+    if(wf.season==="all") return true;
+    return g.w==="all" || (wf.season==="summer"||wf.season==="spring" ? g.w==="light":"heavy"===g.w) || (g.w==="all");
+  });
+  const seasonChips = ["all","summer","winter","spring","autumn"];
+  const eq = who==="mom"? S.outfit : {dress:S.babyOutfit};
+  return `
+  <h2 class="sec">الدولاب <small>${who==="mom"?"لبسك":"لبس البيبي"}</small></h2>
+  <div class="tabs2">
+    <button data-who="mom" class="${who==="mom"?"on":""}">أنا 👗</button>
+    <button data-who="baby" class="${who==="baby"?"on":""}">البيبي 👶</button>
+  </div>
+  <div class="chips">
+    ${(who==="mom"?["dress","top","bottom","shoes","bag","acc"]:["baby"]).map(c=>
+      `<button class="chip ${wf.cat===c?"on":""}" data-cat="${c}">${c==="baby"?"لبس البيبي":CAT_NAMES[c]}</button>`).join("")}
+  </div>
+  <div class="chips">
+    ${seasonChips.map(s=>`<button class="chip ${wf.season===s?"on":""}" data-season="${s}">${s==="all"?"كل الفصول":SEASON_EM[s]+" "+SEASON_NAMES(s)}</button>`).join("")}
+  </div>
+  <p class="muted">${filtered.length} قطعة متاحة — الموسم الحالي ${SEASON_EM[S.season]} ${seasonName(S.season)}</p>
+  <div class="items">
+    ${filtered.slice(0,120).map(g=>{
+      const owned = S.owned.includes(g.id);
+      const on = who==="mom"
+        ? (g.cat==="acc" ? S.outfit.acc[g.kind]===g.id : S.outfit[g.cat]===g.id)
+        : S.babyOutfit===g.id;
+      return `<div class="item">
+        <div class="sw" style="background:${colorOf(g.color).h}">${owned?`<span class="badge">${on?"مفصول":"مملوك"}</span>`:""}</div>
+        <div class="nm">${g.name}</div>
+        <div class="pr">${colorOf(g.color).n} · ${g.w==="all"?"كل الفصول":g.w==="light"?"خفيف":"تقيل"} · ${g.p} 🪙</div>
+        <div class="bx">
+          ${owned
+            ? (on ? `<button class="g" data-take="${g.id}" data-who2="${who}">اقلعي</button>`
+                  : `<button class="p" data-wear="${g.id}" data-who2="${who}">البسيها</button>`)
+            : `<button class="p" data-buy="${g.id}" data-who2="${who}">اشتريها</button>`}
+          ${owned? `<button class="r" data-sell="${g.id}" data-who2="${who}">شيلها</button>`:""}
+        </div>
+      </div>`;
+    }).join("")}
+  </div>`;
+}
+function SEASON_NAMES(s){ return SEASONS[s]; }
+
+/* ---------- makeup ---------- */
+function viewMakeup(){
+  const m = S.makeup;
+  const applyDot = (list, field, id)=>{
+    return list.map(x=>`<div class="dot ${m[field]===x.id?"on":""}" title="${x.n}" style="background:${x.h==="transparent"?"repeating-linear-gradient(45deg,#eee,#eee 4px,#fff 4px,#fff 8px)":x.h}" data-mk="${field}" data-id="${x.id}"></div>`).join("");
+  };
+  return `
+  <h2 class="sec">غرفة المكياج <small>جرّبي براحتك</small></h2>
+  <div class="room" style="padding:6px"><div class="avatar-wrap" style="min-height:280px">${momSVG()}</div></div>
+
+  <div class="card" style="margin-top:12px">
+    <b>لوكات جاهزة</b>
+    <div class="row" style="margin-top:8px;flex-wrap:wrap;gap:8px">
+      ${OUTFITS_PRESET.map(p=>`<button class="look ${m.preset===p.id?"on":""}" data-preset="${p.id}">${p.n}</button>`).join("")}
+    </div>
+    <button class="btn soft" id="mkClear" style="margin-top:10px;width:100%">مسح المكياج كله</button>
+  </div>
+
+  <h2 class="sec">أحمر الشفاه</h2>
+  <div class="card"><div class="swatches">${applyDot(LIPS,"lip")}</div></div>
+
+  <h2 class="sec">ظلال العيون</h2>
+  <div class="card"><div class="swatches">${applyDot(EYES,"eye")}</div></div>
+
+  <h2 class="sec">البلاش</h2>
+  <div class="card"><div class="swatches">${applyDot(BLUSH,"blush")}</div></div>
+
+  <h2 class="sec">الأظافر</h2>
+  <div class="card"><div class="swatches">${applyDot(NAILS,"nails")}</div><p class="muted">الأظافر بتظهر في لوك اليوم وفي الألبوم.</p></div>
+
+  <h2 class="sec">الشعر</h2>
+  <div class="card">
+    <div class="row" style="flex-wrap:wrap;gap:8px">
+      ${HAIR_STYLES.map(h=>`<button class="look ${S.hairStyle===h.id?"on":""}" data-hair="${h.id}">${h.n}</button>`).join("")}
+    </div>
+    <div class="swatches" style="margin-top:12px">
+      ${HAIR_COLORS.map(h=>`<div class="dot ${S.hairColor===h.id?"on":""}" style="background:${h.h}" data-hairc="${h.id}" title="${h.n}"></div>`).join("")}
+    </div>
+    <p class="muted" style="margin-bottom:0">لون البشرة</p>
+    <div class="swatches" style="margin-top:6px">
+      ${SKIN.map(sk=>`<div class="dot ${S.skin===sk.id?"on":""}" style="background:${sk.h}" data-skin="${sk.id}" title="${sk.n}"></div>`).join("")}
+    </div>
+  </div>`;
+}
+
+/* ---------- outings ---------- */
+function viewOutings(){
+  const ok = DESTS.filter(d=>d.season==="all"||d.season===S.season);
+  const no = DESTS.filter(d=>!(d.season==="all"||d.season===S.season));
+  const card = (d, dis)=>`
+    <button class="dest ${dis?"":""}" data-out="${d.id}" ${dis?"disabled style='opacity:.45'":""}>
+      <span class="em">${d.em}</span><span class="nm">${d.n}</span>
+      <span class="sb">${d.season==="all"?"طول السنة":SEASON_NAMES(d.season)} · ${d.c} 🪙</span>
+    </button>`;
+  return `
+  <h2 class="sec">الخروجات <small>الموسم: ${SEASON_EM[S.season]} ${seasonName(S.season)}</small></h2>
+  <div class="card" style="margin-bottom:12px">
+    <div class="row"><div class="grow muted">حالة البيبي</div><b>${S.stats.happy>=35?"مبسوطة وجاهزة 👶":"محتاجة حضن الأول 🤱"}</b></div>
+    <div class="row" style="margin-top:8px"><div class="grow muted">لبسك الحالي</div><b>${S.outfit.dress?(byId(S.outfit.dress)||{}).name:"لسه من غير لبس"}</b></div>
+  </div>
+  <div class="dests">${ok.map(d=>card(d,false)).join("")}</div>
+  ${no.length?`<h2 class="sec">مش في الموسم <small>مقفولة دلوقتي</small></h2><div class="dests">${no.map(d=>card(d,true)).join("")}</div>`:""}`;
+}
+
+/* ---------- nursery ---------- */
+function viewNursery(){
+  const n = S.nursery;
+  const crib = NURSERY.crib.items.find(x=>x.id===n.crib)||NURSERY.crib.items[0];
+  const wall = NURSERY.wall.items.find(x=>x.id===n.wall)||NURSERY.wall.items[0];
+  const toy = NURSERY.toy.items.find(x=>x.id===n.toy)||NURSERY.toy.items[0];
+  const lamp = NURSERY.lamp.items.find(x=>x.id===n.lamp)||NURSERY.lamp.items[0];
+  const emojiWall = Array(9).fill(wall.em).join(" ");
+  return `
+  <h2 class="sec">حضانة البيبي <small>رتّبيها زي ما تحبي</small></h2>
+  <div class="room" style="padding:18px 12px">
+    <div style="text-align:center;font-size:22px;letter-spacing:8px;opacity:.75">${emojiWall}</div>
+    <div style="display:flex;justify-content:center;margin:8px 0">${babySVG(150)}</div>
+    <div style="height:58px;border-radius:16px;background:${crib.h};border:3px solid rgba(0,0,0,.06);position:relative;margin:0 12px">
+      <div style="position:absolute;inset:8px;border-radius:12px;background:rgba(255,255,255,.45)"></div>
+      <div style="position:absolute;left:10px;bottom:8px;font-size:26px">${toy.em}</div>
+      <div style="position:absolute;right:10px;bottom:10px;font-size:22px">${lamp.em}</div>
+    </div>
+    <p class="muted" style="text-align:center;margin-bottom:0">${crib.n} · ديكور ${wall.n} · ${toy.n} · ${lamp.n}</p>
+  </div>
+  ${Object.keys(NURSERY).map(key=>{
+    const g = NURSERY[key];
+    return `<h2 class="sec">${g.n}</h2><div class="card"><div class="row" style="flex-wrap:wrap;gap:8px">
+      ${g.items.map(it=>`<button class="look ${n[key]===it.id?"on":""}" data-nur="${key}" data-id="${it.id}">${it.em||""} ${it.n}</button>`).join("")}
+    </div></div>`;
+  }).join("")}`;
+}
+
+/* ---------- kitchen ---------- */
+let kf = {tab:"fridge"};
+function ingById(id){ return INGREDIENTS.find(x=>x.id===id); }
+function stockOf(id){
+  const g = ingById(id); if(!g) return 0;
+  return +(S.kitchen[g.zone][id]||0);
+}
+function canCook(r){
+  return Object.keys(r.need).every(k=>stockOf(k) >= r.need[k]);
+}
+function viewKitchen(){
+  const tabs = [["fridge","🧊","الثلاجة"],["freezer","❄️","الفريزر"],["pantry","🥫","رف المؤن"],["cook","🍳","محطة الطبخ"],["table","🍽️","السفرة"]];
+  if(!tabs.some(t=>t[0]===kf.tab)) kf.tab = "fridge";
+  let body = "";
+  if(kf.tab==="fridge"||kf.tab==="freezer"||kf.tab==="pantry"){
+    const zone = kf.tab;
+    const list = INGREDIENTS.filter(g=>g.zone===zone && stockOf(g.id)>0);
+    body = `
+    <div class="card">
+      <b>${ZONES[zone]}</b>
+      <p class="muted" style="margin:4px 0 10px">${list.length? "دوسي على + تجيبي حاجة زيادة":"فاضية — اشتري مكونات من المتجر"}</p>
+      ${list.length? list.map(g=>`<div class="row" style="padding:8px 0;border-bottom:1px solid var(--line)">
+        <div style="font-size:26px">${g.em}</div>
+        <div class="grow"><b>${g.n}</b><div class="muted">عندك ${stockOf(g.id)}</div></div>
+        <button class="btn soft" data-buying="${g.id}" style="padding:8px 12px">+ ${g.p} 🪙</button>
+      </div>`).join("") : ""}
+      <button class="btn" data-view="store" style="width:100%;margin-top:12px">افتحي المتجر 🛒</button>
+    </div>`;
+  } else if(kf.tab==="cook"){
+    body = `<div class="card"><b>محطة الطبخ</b><p class="muted" style="margin:4px 0 12px">اختاري أكلة أو مشروب — المكونات هتتخصم من المطبخ.</p></div>
+    <div class="grid2">
+    ${RECIPES.map(r=>{
+      const ok = canCook(r);
+      const need = Object.keys(r.need).map(k=>{
+        const g = ingById(k), have=stockOf(k), q=r.need[k];
+        return `<span style="color:${have>=q?"#3f8f68":"#c0566b"}">${g.em} ${g.n} ${have}/${q}</span>`;
+      }).join(" · ");
+      return `<div class="card" style="margin:0">
+        <div style="font-size:34px;text-align:center">${r.em}</div>
+        <b style="display:block;text-align:center;margin-top:4px">${r.n}</b>
+        <div class="muted" style="font-size:11.5px;text-align:center;margin:6px 0 10px;line-height:1.7">${need}</div>
+        <button class="btn ${ok?"":"ghost"}" data-cook="${r.id}" ${ok?"":"disabled style='opacity:.5'"}>${ok?"اطبخي 🍳":"مكونات ناقصة"}</button>
+      </div>`;
+    }).join("")}
+    </div>`;
+  } else {
+    const all = [...S.kitchen.dishes.map((id,i)=>({id,i,kind:"dishes"})), ...S.kitchen.drinks.map((id,i)=>({id,i,kind:"drinks"}))];
+    body = `<div class="card" style="text-align:center;padding:18px">
+      <div style="font-size:40px">🍽️</div><b>السفرة الطويلة</b>
+      <p class="muted" style="margin:4px 0 0">${all.length? all.length+" حاجة جاهزة للتقديم":"لسه مفيش أكل على السفرة"}</p>
+    </div>
+    ${all.length? `<div class="card">${all.map((it,idx)=>{
+      const r = RECIPES.find(x=>x.id===it.id)||{n:"حاجة",em:"🍽️"};
+      return `<div class="row" style="padding:8px 0;border-bottom:1px solid var(--line)">
+        <div style="font-size:26px">${r.em}</div>
+        <div class="grow"><b>${r.n}</b><div class="muted">${it.kind==="drinks"?"مشروب":"طبق"}</div></div>
+        <button class="btn soft" data-serve="${idx}" data-kind="${it.kind}" style="padding:8px 12px">قدّميها</button>
+      </div>`;}).join("")}</div>` : `<button class="btn big" data-ktab="cook" style="width:100%">يلا نطبخ 🍳</button>`}`;
+  }
+  return `
+  <h2 class="sec">المطبخ <small>مكونات وطبخ من إبداعك</small></h2>
+  <div class="tabs2" style="flex-wrap:wrap">
+    ${tabs.map(([id,em,n])=>`<button data-ktab="${id}" class="${kf.tab===id?"on":""}">${em} ${n}</button>`).join("")}
+  </div>
+  ${body}`;
+}
+
+/* ---------- bathroom ---------- */
+function viewBath(){
+  const b = S.bath;
+  const lastToday = b.lastShower === dayKey();
+  return `
+  <h2 class="sec">الحمام <small>دش بماء دافي واعتناء بنفسك</small></h2>
+  <div class="room" style="padding:18px 14px;background:linear-gradient(180deg,#e8f4f7,#d7e9f2)">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:8px">
+      <div style="font-size:44px">🚿</div>
+      <div style="font-size:13px;line-height:1.7;text-align:left">
+        <b>ماء دافي جاهز</b><br>
+        <span class="muted">${lastToday? "استحميتي النهارده 🫧" : "الدش مستنيكي"}</span>
+      </div>
+      <div style="font-size:40px">🪞</div>
+    </div>
+    <div style="height:76px;margin-top:10px;border-radius:16px;background:linear-gradient(180deg,#f7fdff,#cfe6ef);border:2px solid rgba(255,255,255,.7);position:relative;overflow:hidden">
+      <div style="position:absolute;left:0;right:0;bottom:0;height:26px;background:#bcdce8"></div>
+      <div style="position:absolute;left:18px;bottom:18px;font-size:22px">🫧</div>
+      <div style="position:absolute;right:24px;bottom:22px;font-size:20px">🫧</div>
+      <div style="position:absolute;left:50%;bottom:12px;transform:translateX(-50%);font-size:26px">🧼</div>
+    </div>
+    <p class="muted" style="text-align:center;margin:10px 0 0">دش ${b.showers} · وش ${b.faces} · إيدين ${b.hands} · أسنان ${b.teeth} · شعر ${b.hair} · بشرة ${b.skincare||0}</p>
+  </div>
+  <h2 class="sec">اعملي إيه؟</h2>
+  <div class="grid3">
+    ${BATH_ACTS.map(a=>`<button class="act" data-bath="${a.id}"><span class="i">${a.em}</span>${a.n}<span class="muted" style="font-size:11px;display:block;margin-top:2px">+${a.c} 🪙</span></button>`).join("")}
+  </div>
+  <div class="card" style="margin-top:12px">
+    <b>نصيحة</b>
+    <p class="muted" style="margin:6px 0 0">لو استحميتي أول مرة في اليوم بتاخدي مكافأة أكبر. غسل الوجه والإيدين بينفعوا في أي وقت.</p>
+  </div>`;
+}
+
+/* ---------- pets ---------- */
+function petDef(kind){ return PET_DEFS.find(p=>p.id===kind)||PET_DEFS[0]; }
+function petItem(id){ return PET_ITEMS.find(x=>x.id===id); }
+function ownedPetItems(cat){
+  return PET_ITEMS.filter(x=>x.cat===cat && (S.petItems[x.id]||0)>0);
+}
+function viewPets(){
+  const pets = S.pets;
+  return `
+  <h2 class="sec">حديقة الحيوانات <small>${pets.length} حيوان عندك</small></h2>
+  ${!pets.length? `<div class="card" style="text-align:center;padding:26px">
+      <div style="font-size:48px">🐾</div>
+      <b>لسه مفيش حيوانات</b>
+      <p class="muted">اشتري حيوان من المتجر، وربيه وأكليه واسقيه والعبيه والبسيه وزيّنيه.</p>
+      <button class="btn big" data-view="store" style="width:100%">روحي المتجر 🛒</button>
+    </div>` : pets.map((p,idx)=>{
+    const def = petDef(p.kind);
+    const acc = p.equip&&p.equip.acc? petItem(p.equip.acc):null;
+    const dec = p.equip&&p.equip.decor? petItem(p.equip.decor):null;
+    const accList = ownedPetItems("acc"), decList = ownedPetItems("decor");
+    return `<div class="card" style="margin-bottom:14px">
+      <div class="row">
+        <div style="font-size:52px;position:relative">${def.em}<span style="font-size:20px;position:absolute;right:-8px;top:-4px">${acc?acc.em:""}</span></div>
+        <div class="grow">
+          <input class="petname" data-uid="${p.uid}" value="${esc(p.name||def.n)}" maxlength="14"
+            style="border:1.5px solid var(--line);border-radius:10px;padding:8px 10px;font-family:inherit;font-size:15px;font-weight:700;width:100%;background:#fff">
+          <div class="muted">${def.n} · المستوى ${p.level||1} · ${dec?dec.n:"من غير بيت"}</div>
+        </div>
+      </div>
+      <div style="margin-top:10px">
+        ${statBar("الشبع 🍖", p.hunger, "#e9a24c")}
+        ${statBar("السعادة 💗", p.happy, "#e26a92")}
+        ${statBar("النظافة 🫧", p.clean, "#3fb2a8")}
+      </div>
+      <div class="row" style="flex-wrap:wrap;gap:8px;margin-top:10px">
+        <button class="btn soft" data-petact="feed" data-uid="${p.uid}">أكل 🍖</button>
+        <button class="btn soft" data-petact="water" data-uid="${p.uid}">شرب 💧</button>
+        <button class="btn soft" data-petact="play" data-uid="${p.uid}">لعب 🎾</button>
+        <button class="btn soft" data-petact="clean" data-uid="${p.uid}">تنظيف 🧼</button>
+        <button class="btn soft" data-petact="train" data-uid="${p.uid}">تدريب 🎓</button>
+      </div>
+      ${accList.length? `<p class="muted" style="margin:12px 0 6px">إكسسوارات — دوسي عشان تلبسيها</p>
+        <div class="chips">${accList.map(x=>`<button class="chip ${p.equip&&p.equip.acc===x.id?"on":""}" data-petitem="acc" data-item="${x.id}" data-uid="${p.uid}">${x.em} ${x.n}</button>`).join("")}</div>`:""}
+      ${decList.length? `<p class="muted" style="margin:12px 0 6px">بيت وتزيين</p>
+        <div class="chips">${decList.map(x=>`<button class="chip ${p.equip&&p.equip.decor===x.id?"on":""}" data-petitem="decor" data-item="${x.id}" data-uid="${p.uid}">${x.em} ${x.n}</button>`).join("")}</div>`:""}
+    </div>`;
+  }).join("")}
+  <button class="btn big" data-view="store" style="width:100%;margin-top:6px">متجر الحيوانات والمستلزمات 🛒</button>`;
+}
+
+/* ---------- baby corner ---------- */
+let bf = {tab:"toys"};
+function babyToy(id){ return BABY_TOYS.find(x=>x.id===id); }
+function babyFood(id){ return BABY_FOODS.find(x=>x.id===id); }
+function babySong(id){ return BABY_SONGS.find(x=>x.id===id); }
+function viewBabyCorner(){
+  const bc = S.babyCorner;
+  const tabs = [["toys","🧸","ألعاب"],["food","🍼","أكل"],["songs","🎵","أغاني"],["acts","🤹","أنشطة"]];
+  if(!tabs.some(t=>t[0]===bf.tab)) bf.tab = "toys";
+  let body = "";
+  if(bf.tab==="toys"){
+    body = `<div class="card"><b>ألعاب البيبي</b><p class="muted" style="margin:4px 0 0">اشتري اللعبة مرة واحدة، وبعدها العبي بيها كل يوم — بتفرّح ${esc(S.babyName||"البيبي")} وبتزوّد السعادة.</p></div>
+    <div class="grid2">${BABY_TOYS.map(t=>{
+      const own = bc.toys.includes(t.id);
+      return `<div class="card" style="margin:0;text-align:center">
+        <div style="font-size:40px">${t.em}</div><b>${t.n}</b>
+        <div class="muted" style="margin:4px 0 8px">${own?"عندك ✓":t.p+" 🪙"}</div>
+        ${own? `<button class="btn soft" data-playtoy="${t.id}" style="width:100%">العب 🎈</button>`
+              : `<button class="btn" data-buytoy="${t.id}" style="width:100%">اشتري</button>`}
+      </div>`;
+    }).join("")}</div>`;
+  } else if(bf.tab==="food"){
+    body = `<div class="card"><b>أكل البيبي</b><p class="muted" style="margin:4px 0 0">${BABY_FOODS.length} وجبة — اشتريها وكل واحدة بتشبع البيبي وتفرحه.</p></div>
+    <div class="items">${BABY_FOODS.map(f=>{
+      const q = bc.foods[f.id]||0;
+      return `<div class="item">
+        <div class="sw" style="background:#f4eee7;display:flex;align-items:center;justify-content:center;font-size:28px">${f.em}</div>
+        <div class="nm">${f.n}</div>
+        <div class="pr">${f.p} 🪙 · عندك ${q}</div>
+        <div class="bx" style="display:flex;gap:6px">
+          <button class="p" data-buyfood="${f.id}">اشتري</button>
+          ${q>0? `<button class="p" data-feedfood="${f.id}" style="background:#3fb2a8">كل</button>`:""}
+        </div>
+      </div>`;
+    }).join("")}</div>`;
+  } else if(bf.tab==="songs"){
+    body = `<div class="card"><b>أغاني وأناشيد</b><p class="muted" style="margin:4px 0 0">${BABY_SONGS.length} أغنية — غنّيها للبيبي ببلاش، كل أغنية بتفرحه وبتريحه.</p></div>
+    <div class="card">${BABY_SONGS.map(s=>`<div class="feat">
+      <div class="sp"><b>${s.em} ${s.n}</b><div class="muted">${s.line}</div></div>
+      <button class="btn soft" data-sing="${s.id}" style="padding:8px 12px">غني</button>
+    </div>`).join("")}</div>
+    <p class="muted" style="text-align:center">غنيتي ${bc.songs||0} أغنية لحد دلوقتي</p>`;
+  } else {
+    body = `<div class="card"><b>أنشطة وحركات</b><p class="muted" style="margin:4px 0 0">${BABY_ACTS.length} نشاط — دوسي على النشاط وهتلاقي أثره على مؤشرات البيبي.</p></div>
+    <div class="grid2">${BABY_ACTS.map(a=>`<div class="card" style="margin:0;text-align:center;padding:14px">
+      <div style="font-size:32px">${a.em}</div><b style="font-size:14px">${a.n}</b>
+      <button class="btn soft" data-babyact="${a.id}" style="width:100%;margin-top:8px">اعملي</button>
+    </div>`).join("")}</div>`;
+  }
+  return `
+  <h2 class="sec">ركن البيبي <small>${BABY_TOYS.length+BABY_FOODS.length+BABY_SONGS.length+BABY_ACTS.length} حاجة جديدة</small></h2>
+  <div class="tabs2">${tabs.map(([id,em,n])=>`<button data-btab="${id}" class="${bf.tab===id?"on":""}">${em} ${n}</button>`).join("")}</div>
+  ${body}`;
+}
+
+/* ---------- store ---------- */
+let sf = {tab:"ing", zone:"fridge"};
+function viewStore(){
+  const tabs = [["ing","🥕","المكونات"],["pets","🐾","الحيوانات"],["supply","🎾","المستلزمات"]];
+  if(!tabs.some(t=>t[0]===sf.tab)) sf.tab = "ing";
+  let body = "";
+  if(sf.tab==="ing"){
+    const zones = ["fridge","freezer","pantry"];
+    if(!zones.includes(sf.zone)) sf.zone = "fridge";
+    body = `<div class="chips">${zones.map(z=>`<button class="chip ${sf.zone===z?"on":""}" data-szone="${z}">${z==="fridge"?"🧊":z==="freezer"?"❄️":"🥫"} ${ZONES[z]}</button>`).join("")}</div>
+    <div class="items">
+      ${INGREDIENTS.filter(g=>g.zone===sf.zone).map(g=>`<div class="item">
+        <div class="sw" style="background:#f4eee7;display:flex;align-items:center;justify-content:center;font-size:28px">${g.em}</div>
+        <div class="nm">${g.n}</div>
+        <div class="pr">${g.p} 🪙 · عندك ${stockOf(g.id)}</div>
+        <div class="bx"><button class="p" data-buying="${g.id}">اشتري</button></div>
+      </div>`).join("")}
+    </div>`;
+  } else if(sf.tab==="pets"){
+    body = `<div class="card"><b>اختاري حيوانك</b><p class="muted" style="margin:4px 0 0">أقصى عدد ${S.pets.length}/6 — كل حيوان بيحتاج أكل ورعاية.</p></div>
+    <div class="grid2">${PET_DEFS.map(p=>`<div class="card" style="margin:0;text-align:center">
+      <div style="font-size:44px">${p.em}</div><b>${p.n}</b>
+      <div class="muted" style="margin:4px 0 10px">${p.p} 🪙</div>
+      <button class="btn" data-buypet="${p.id}" ${S.pets.length>=6?"disabled style='opacity:.5'":""}>${S.pets.length>=6?"الحد أكتمل":"اشتري"}</button>
+    </div>`).join("")}</div>`;
+  } else {
+    const cats = [["food","🍖","الأكل"],["toy","🎾","ألعاب"],["acc","🎀","إكسسوارات"],["decor","🏠","بيوت وتزيين"]];
+    body = cats.map(([cat,em,n])=>{
+      const list = PET_ITEMS.filter(x=>x.cat===cat);
+      return `<h2 class="sec">${em} ${n}</h2><div class="items">
+        ${list.map(x=>`<div class="item">
+          <div class="sw" style="background:#f4eee7;display:flex;align-items:center;justify-content:center;font-size:28px">${x.em}</div>
+          <div class="nm">${x.n}</div>
+          <div class="pr">${x.p} 🪙 · عندك ${S.petItems[x.id]||0}</div>
+          <div class="bx"><button class="p" data-buysupply="${x.id}">اشتري</button></div>
+        </div>`).join("")}
+      </div>`;
+    }).join("");
+  }
+  return `
+  <h2 class="sec">المتجر <small>كل حاجة في مكان واحد</small></h2>
+  <div class="tabs2">${tabs.map(([id,em,n])=>`<button data-stab="${id}" class="${sf.tab===id?"on":""}">${em} ${n}</button>`).join("")}</div>
+  ${body}`;
+}
+
+/* ---------- album ---------- */
+function viewAlbum(){
+  return `
+  <h2 class="sec">الألبوم <small>${S.photos.length} صورة</small></h2>
+  ${S.photos.length? `<div class="photos">${S.photos.map((p,i)=>`
+    <div class="photo"><div class="im">${p.em}</div>
+      <div class="cap"><b>${esc(p.n)}</b>${esc(p.note||"")}<br><span class="muted">${esc(p.date)}</span></div>
+      <button class="del" data-delphoto="${i}">مسح الصورة</button>
+    </div>`).join("")}</div>`
+  : `<div class="card" style="text-align:center;padding:28px"><div style="font-size:44px">📷</div><p class="muted">لسه مفيش صور. اخرجي خروجة من صفحة الخروجات وكل مرة هتاخدي صورة جديدة.</p><button class="btn" data-view="outings">يلا نخرج 🚗</button></div>`}
+  <h2 class="sec">يومياتك <small>${S.diary.length} يوم</small></h2>
+  <div class="card">
+    <div class="row"><input id="diaryIn" placeholder="اكتبي حاجة عن النهارده…" style="flex:1;border:1.5px solid var(--line);border-radius:14px;padding:12px;font-family:inherit;font-size:15px;outline:none">
+    <button class="btn" id="diaryAdd">حفظ</button></div>
+    ${S.diary.slice(-12).reverse().map(d=>`<div class="task"><div class="tx">${esc(d.t)}</div><div class="muted">${esc(d.date)}</div></div>`).join("")}
+  </div>`;
+}
+
+/* ---------- features ---------- */
+function featureList(){
+  const garmentCount = GARMENTS.length + BABY_ITEMS.length;
+  const makeupCount = LIPS.length+EYES.length+BLUSH.length+NAILS.length;
+  const featureItems = [
+    ["لوحة البداية واختيار اسمك الجديد", true],
+    ["اختيار نوع البيبي (بنت / ولد) واسمه", true],
+    ["مشهد الولادة في المستشفى", true],
+    ["رعاية البيبي: رضاعة، نوم، حمام، لعب، حفاضة، تدليك، تهويدة، حضن", true],
+    ["مؤشرات الشبع والسعادة والطاقة والنظافة", true],
+    ["مهام يومية ومكافأة نهاية اليوم", true],
+    ["مستوى وخبرة مع كل تفاعل", true],
+    ["الدولاب: فساتين قصيرة وطويلة وخفتها وتقيلها", true],
+    ["فلاتر بالفصول: صيف، شتاء، ربيع، خريف، وكل الفصول", true],
+    ["بلوزات وسويترات وجيبات وبنطلونات", true],
+    ["أحذية: كعب، باليرينا، سنيكرز، بوت، صندل", true],
+    ["شنط: يد، كتف، كلاتش، ظهر", true],
+    ["إكسسوارات: طوق، عقد، حلق، نظارة، إيشارب، جوانتي", true],
+    ["شراء وتنزيل ورمي قطع من الدولاب", true],
+    ["ألوان متعددة لكل قطعة", true],
+    ["ملابس البيبي: أفرول، طقم، فستان، بيجامة، طاقية، جزم", true],
+    ["غرفة المكياج: أحمر شفاه، ظلال، بلاش، أظافر", true],
+    ["لوكات مكياج جاهزة", true],
+    ["قصات شعر وألوان شعر", true],
+    ["ألوان بشرة مختلفة", true],
+    ["سرير التجهيز: لبس النهارده على السرير", true],
+    ["خروجات حسب الموسم: حديقة، مول، شاطئ، حفلة…", true],
+    ["مكافآت الخروج وصور تتحفظ في الألبوم", true],
+    ["ديكور الحضانة: سرير، حائط، لعبة، ضوء", true],
+    ["ألبوم صور ويوميات", true],
+    ["ثلاجة وفريزر ورف مؤن لمكونات المطبخ", S.modules.kitchen],
+    ["محطة طبخ: تختاري المكونات وتطبخي أطباقك ومشروباتك", S.modules.kitchen],
+    ["سفرة طويلة بتقديم الأكل والمشروبات", S.modules.kitchen],
+    ["حمام بدش بماء دافي وغسل الوجه والإيدين والأسنان", S.modules.bath],
+    ["حديقة حيوانات: شراء وتربية وتزيين ولبس الحيوانات", S.modules.pets],
+    ["متجر مكونات وحيوانات ومستلزمات", S.modules.store],
+    ["ركن البيبي: ألعاب وأكل وأغاني وأنشطة جديدة", S.modules.babyCorner],
+    ["إخفاء وإظهار الميزات من دي الصفحة", true],
+    ["حفظ تلقائي على الموبايل", true]
+  ];
+  const items = featureItems.filter(x=>x[1]).length + garmentCount + makeupCount +
+    OUTFITS_PRESET.length + HAIR_STYLES.length + HAIR_COLORS.length + SKIN.length +
+    DESTS.length + CARE.length +
+    Object.values(NURSERY).reduce((a,g)=>a+g.items.length,0) +
+    INGREDIENTS.length + RECIPES.length + BATH_ACTS.length +
+    PET_DEFS.length + PET_ITEMS.length +
+    BABY_TOYS.length + BABY_FOODS.length + BABY_SONGS.length + BABY_ACTS.length;
+  return {items, garmentCount, makeupCount, featureItems};
+}
+
+function viewFeatures(){
+  const F = featureList();
+  const mods = [
+    ["makeup","المكياج","غرفة المكياج واللوكات"],
+    ["wardrobe","الدولاب","اللبس والشراء"],
+    ["outings","الخروجات","الخروج والصور"],
+    ["nursery","الحضانة","ديكور غرفة البيبي"],
+    ["album","الألبوم","الصور واليوميات"],
+    ["kitchen","المطبخ","ثلاجة وفريزر وطبخ وسفرة"],
+    ["bath","الحمام","دش وغسل واعتناء"],
+    ["pets","الحيوانات","حديقة وتربية وتزيين"],
+    ["store","المتجر","مكونات وحيوانات ومستلزمات"],
+    ["babyCorner","ركن البيبي","ألعاب وأكل وأغاني وأنشطة"]
+  ];
+  return `
+  <h2 class="sec">كل الميزات <small>${F.items} عنصر وميزة</small></h2>
+  <div class="card" style="text-align:center">
+    <div class="count">${F.items}</div>
+    <p class="muted" style="margin:4px 0 0">عنصر وميزة شغالين فعليًا في اللعبة دلوقتي<br>
+    ${F.garmentCount} قطعة لبس · ${F.makeupCount} لون مكياج · ${DESTS.length} خروجة · ${CARE.length} رعاية</p>
+  </div>
+  <h2 class="sec">إظهار وإخفاء الأقسام <small>شيل ميزة أو حطها</small></h2>
+  <div class="card">
+    ${mods.map(([k,n,d])=>`<div class="feat"><div class="sp"><b>${n}</b><div class="muted">${d}</div></div>
+      <button class="switch ${S.modules[k]?"on":""}" data-mod="${k}"></button></div>`).join("")}
+  </div>
+  <h2 class="sec">تفاصيل الميزات</h2>
+  <div class="card">
+    ${F.featureItems.map(([n],i)=>`<div class="feat"><span class="n">${i+1}</span><span class="sp">${n}</span></div>`).join("")}
+    <p class="muted" style="margin:12px 0 0">بالإضافة لِـ ${F.garmentCount} قطعة لبس و${F.makeupCount} لون مكياج و${DESTS.length} خروجة و${CARE.length} أنشطة رعاية و${Object.values(NURSERY).reduce((a,g)=>a+g.items.length,0)} قطعة ديكور للحضانة.</p>
+  </div>`;
+}
+
+/* ---------- settings ---------- */
+function viewSettings(){
+  return `
+  <h2 class="sec">الإعدادات</h2>
+  <div class="card">
+    <div class="field"><label>اسمك في اللعبة</label><input id="setMom" maxlength="18" value="${esc(S.momName||"")}"></div>
+    <div class="field"><label>اسم البيبي</label><input id="setBaby" maxlength="18" value="${esc(S.babyName||"")}"></div>
+    <div class="field"><label>الموسم</label>
+      <select id="setSeason">
+        <option value="auto" ${S.seasonAuto?"selected":""}>تلقائي حسب الشهر</option>
+        ${Object.keys(SEASONS).map(k=>`<option value="${k}" ${!S.seasonAuto&&S.season===k?"selected":""}>${SEASON_EM[k]} ${SEASONS[k]}</option>`).join("")}
+      </select></div>
+    <div class="row"><button class="btn grow" id="setSave">حفظ</button><button class="btn ghost" id="setReset">ابدأي من جديد</button></div>
+  </div>
+  <p class="muted" style="text-align:center;margin-top:14px">بياناتك محفوظة على جهازك فقط — مفيش أي حاجة بتتبعت لأي مكان.</p>`;
+}
+
+/* ================= bindings ================= */
+function bind(){
+  const scr = $("#screen");
+  const on = (sel, ev, fn)=>{ const el = scr.querySelector(sel); if(el) el.addEventListener(ev, fn); };
+  [...scr.querySelectorAll("[data-view]")].forEach(b=>b.onclick=()=>go(b.dataset.view));
+
+  if(S.view==="start"){
+    [...scr.querySelectorAll("[data-g]")].forEach(b=>b.onclick=()=>{ S.gender=b.dataset.g; render(); });
+    on("#startBtn","click",()=>{
+      S.momName = ($("#inMom").value||"").trim() || "أم ليان";
+      S.babyName = ($("#inBaby").value||"").trim() || (S.gender==="girl"?"ليان":"يوسف");
+      S.babyOutfit = "b_onesie_" + (S.gender==="girl"?"rose":"blue");
+      S.started = true; S.view="hospital"; save(); render();
+    });
+  }
+  if(S.view==="hospital"){
+    on("#homeBtn","click",()=>{ go("home"); toast("أهلاً بيكي في البيت 🏡"); });
+  }
+  if(S.view==="home"){
+    [...scr.querySelectorAll("[data-care]")].forEach(b=>b.onclick=()=>care(b.dataset.care));
+    on("#claimBtn","click",()=>{
+      if(S.day.cleared) return;
+      S.day.cleared = true; addCoins(80); addXp(25); save(); toast("مكافأة اليوم: +80 🪙");
+      render();
+    });
+    on("#babyRoomBtn","click",()=>go("nursery"));
+    on("#setBtn","click",()=>go("settings"));
+  }
+  if(S.view==="wardrobe"){
+    [...scr.querySelectorAll("[data-who]")].forEach(b=>b.onclick=()=>{ wf.who=b.dataset.who; wf.cat = b.dataset.who==="mom"?"dress":"baby"; render(); });
+    [...scr.querySelectorAll("[data-cat]")].forEach(b=>b.onclick=()=>{ wf.cat=b.dataset.cat; render(); });
+    [...scr.querySelectorAll("[data-season]")].forEach(b=>b.onclick=()=>{ wf.season=b.dataset.season; render(); });
+    [...scr.querySelectorAll("[data-buy]")].forEach(b=>b.onclick=()=>buy(b.dataset.buy));
+    [...scr.querySelectorAll("[data-wear]")].forEach(b=>b.onclick=()=>wear(b.dataset.wear, b.dataset.who2));
+    [...scr.querySelectorAll("[data-take]")].forEach(b=>b.onclick=()=>takeOff(b.dataset.take, b.dataset.who2));
+    [...scr.querySelectorAll("[data-sell]")].forEach(b=>b.onclick=()=>sell(b.dataset.sell));
+  }
+  if(S.view==="makeup"){
+    [...scr.querySelectorAll("[data-mk]")].forEach(b=>b.onclick=()=>{
+      const f=b.dataset.mk, id=b.dataset.id;
+      S.makeup[f] = (S.makeup[f]===id)? null : id;
+      S.makeup.preset = null; save(); render();
+    });
+    [...scr.querySelectorAll("[data-preset]")].forEach(b=>b.onclick=()=>{
+      const p = OUTFITS_PRESET.find(x=>x.id===b.dataset.preset);
+      S.makeup = {lip:p.lip, eye:p.eye, blush:p.blush, nails:p.nails, preset:p.id};
+      save(); render();
+    });
+    [...scr.querySelectorAll("[data-hair]")].forEach(b=>b.onclick=()=>{ S.hairStyle=b.dataset.hair; save(); render(); });
+    [...scr.querySelectorAll("[data-hairc]")].forEach(b=>b.onclick=()=>{ S.hairColor=b.dataset.hairc; save(); render(); });
+    [...scr.querySelectorAll("[data-skin]")].forEach(b=>b.onclick=()=>{ S.skin=b.dataset.skin; save(); render(); });
+    on("#mkClear","click",()=>{ S.makeup={lip:null,eye:null,blush:null,nails:null,preset:null}; save(); render(); });
+  }
+  if(S.view==="outings"){
+    [...scr.querySelectorAll("[data-out]")].forEach(b=>b.onclick=()=>outing(b.dataset.out));
+  }
+  if(S.view==="nursery"){
+    [...scr.querySelectorAll("[data-nur]")].forEach(b=>b.onclick=()=>{
+      S.nursery[b.dataset.nur]=b.dataset.id; save(); render();
+    });
+  }
+  if(S.view==="album"){
+    [...scr.querySelectorAll("[data-delphoto]")].forEach(b=>b.onclick=()=>{
+      S.photos.splice(+b.dataset.delphoto,1); save(); render();
+    });
+    on("#diaryAdd","click",()=>{
+      const t = ($("#diaryIn").value||"").trim(); if(!t) return;
+      S.diary.push({t, date:new Date().toLocaleDateString("ar-EG")});
+      save(); render();
+    });
+  }
+  if(S.view==="kitchen"){
+    [...scr.querySelectorAll("[data-ktab]")].forEach(b=>b.onclick=()=>{ kf.tab=b.dataset.ktab; render(); });
+    [...scr.querySelectorAll("[data-buying]")].forEach(b=>b.onclick=()=>buyIngredient(b.dataset.buying));
+    [...scr.querySelectorAll("[data-cook]")].forEach(b=>b.onclick=()=>cook(b.dataset.cook));
+    [...scr.querySelectorAll("[data-serve]")].forEach(b=>b.onclick=()=>serve(b.dataset.kind, +b.dataset.serve));
+  }
+  if(S.view==="bath"){
+    [...scr.querySelectorAll("[data-bath]")].forEach(b=>b.onclick=()=>bathAct(b.dataset.bath));
+  }
+  if(S.view==="pets"){
+    [...scr.querySelectorAll("[data-petact]")].forEach(b=>b.onclick=()=>petAct(b.dataset.uid, b.dataset.petact));
+    [...scr.querySelectorAll("[data-petitem]")].forEach(b=>b.onclick=()=>petEquip(b.dataset.uid, b.dataset.petitem, b.dataset.item));
+    [...scr.querySelectorAll(".petname")].forEach(i=>i.onchange=()=>renamePet(i.dataset.uid, i.value));
+  }
+  if(S.view==="babyCorner"){
+    [...scr.querySelectorAll("[data-btab]")].forEach(b=>b.onclick=()=>{ bf.tab=b.dataset.btab; render(); });
+    [...scr.querySelectorAll("[data-buytoy]")].forEach(b=>b.onclick=()=>buyBabyToy(b.dataset.buytoy));
+    [...scr.querySelectorAll("[data-playtoy]")].forEach(b=>b.onclick=()=>playBabyToy(b.dataset.playtoy));
+    [...scr.querySelectorAll("[data-buyfood]")].forEach(b=>b.onclick=()=>buyBabyFood(b.dataset.buyfood));
+    [...scr.querySelectorAll("[data-feedfood]")].forEach(b=>b.onclick=()=>feedBabyFood(b.dataset.feedfood));
+    [...scr.querySelectorAll("[data-sing]")].forEach(b=>b.onclick=()=>singBabySong(b.dataset.sing));
+    [...scr.querySelectorAll("[data-babyact]")].forEach(b=>b.onclick=()=>babyAct(b.dataset.babyact));
+  }
+  if(S.view==="store"){
+    [...scr.querySelectorAll("[data-stab]")].forEach(b=>b.onclick=()=>{ sf.tab=b.dataset.stab; render(); });
+    [...scr.querySelectorAll("[data-szone]")].forEach(b=>b.onclick=()=>{ sf.zone=b.dataset.szone; render(); });
+    [...scr.querySelectorAll("[data-buying]")].forEach(b=>b.onclick=()=>buyIngredient(b.dataset.buying));
+    [...scr.querySelectorAll("[data-buypet]")].forEach(b=>b.onclick=()=>buyPet(b.dataset.buypet));
+    [...scr.querySelectorAll("[data-buysupply]")].forEach(b=>b.onclick=()=>buySupply(b.dataset.buysupply));
+  }
+  if(S.view==="features"){
+    [...scr.querySelectorAll("[data-mod]")].forEach(b=>b.onclick=()=>{
+      const k = b.dataset.mod;
+      S.modules[k] = !S.modules[k];
+      if(!S.modules[k] && S.view===k) S.view="home";
+      save(); render();
+      toast(S.modules[k]? "الميزة رجعت ✓":"الميزة اتشالت");
+    });
+  }
+  if(S.view==="settings"){
+    on("#setSave","click",()=>{
+      S.momName = ($("#setMom").value||"").trim() || "أم ليان";
+      S.babyName = ($("#setBaby").value||"").trim() || S.babyName;
+      const v = $("#setSeason").value;
+      if(v==="auto"){ S.seasonAuto=true; S.season=seasonNow(); }
+      else { S.seasonAuto=false; S.season=v; }
+      save(); toast("اتحفظ ✓"); go("home");
+    });
+    on("#setReset","click",()=>{
+      if(!confirm("هتمسح كل حاجة وتبدأي من جديد. متأكدة؟")) return;
+      S = defaults(); S.view="start"; save(); render();
+    });
+  }
+}
+
+/* ================= actions ================= */
+function care(id){
+  const c = CARE.find(x=>x.id===id); if(!c) return;
+  const T = S.day.tasks;
+  S.stats.hunger = clamp(S.stats.hunger + (c.st.hunger||0), 0, 100);
+  S.stats.happy  = clamp(S.stats.happy  + (c.st.happy||0), 0, 100);
+  S.stats.energy = clamp(S.stats.energy + (c.st.energy||0), 0, 100);
+  S.stats.clean  = clamp(S.stats.clean  + (c.st.clean||0), 0, 100);
+  if(id==="feed") T.feed=(T.feed||0)+1;
+  if(id==="play") T.play=(T.play||0)+1;
+  if(id==="bath") T.bath=(T.bath||0)+1;
+  addCoins(c.c); addXp(4); S.moments++;
+  S.baby.mood = S.stats.happy>70?"سعيدة":S.stats.happy>40?"مرتاحة":"محتاجة حضن";
+  save(); toast(`${c.n}: +${c.c} 🪙`); render();
+}
+
+function buy(id){
+  const g = byId(id); if(!g) return;
+  if(S.owned.includes(id)) return;
+  if(S.coins < g.p){ toast("معاكيش فلوس كفاية 🪙"); return; }
+  S.coins -= g.p; S.owned.push(id); addXp(3); save();
+  toast(`اشتريتي ${g.name} — ${colorOf(g.color).n}`); render();
+}
+function wear(id, who){
+  const g = byId(id); if(!g) return;
+  if(who==="baby"){ S.babyOutfit = id; save(); toast("البيبي لبس الجديد 👶"); render(); return; }
+  if(g.cat==="acc"){ S.outfit.acc[g.kind] = id; }
+  else if(g.cat==="dress"){ S.outfit.dress = id; S.outfit.top=null; S.outfit.bottom=null; }
+  else if(g.cat==="top"){ S.outfit.top = id; S.outfit.dress = null; }
+  else if(g.cat==="bottom"){ S.outfit.bottom = id; S.outfit.dress = null; }
+  else S.outfit[g.cat] = id;
+  save(); toast("اتلبست ✓"); render();
+}
+function takeOff(id, who){
+  const g = byId(id); if(!g) return;
+  if(who==="baby"){ if(S.babyOutfit===id) S.babyOutfit=null; }
+  else if(g.cat==="acc"){ if(S.outfit.acc[g.kind]===id) delete S.outfit.acc[g.kind]; }
+  else if(S.outfit[g.cat]===id) S.outfit[g.cat]=null;
+  save(); toast("اتقلعت"); render();
+}
+function sell(id){
+  const g = byId(id); if(!g) return;
+  if(!S.owned.includes(id)) return;
+  if(!confirm(`هتشيلي "${g.name}" من الدولاب وترجعلك ${Math.floor(g.p/2)} 🪙. متأكدة؟`)) return;
+  takeOff(id, g.cat==="baby"?"baby":"mom");
+  S.owned = S.owned.filter(x=>x!==id);
+  addCoins(Math.floor(g.p/2));
+  save(); toast("اتشالت من الدولاب"); render();
+}
+
+function outing(id){
+  const d = DESTS.find(x=>x.id===id); if(!d) return;
+  if(d.season!=="all" && d.season!==S.season){ toast("مش في الموسم ده ❄️"); return; }
+  if(S.stats.happy < 35){ toast("البيبي محتاجة حضن ورضاعة الأول 🤱"); return; }
+  let bonus = 0, note = "";
+  const dress = S.outfit.dress? byId(S.outfit.dress):null;
+  if(!dress && !S.outfit.top){ bonus = -10; note = " خرجتي من غير تجهيز لبس."; }
+  else if(dress && dress.w==="heavy" && (S.season==="summer")){ bonus=-5; note=" اللبس تقيل شوية على الحر."; }
+  else if(dress && dress.w==="light" && S.season==="winter"){ bonus=-5; note=" خدي جاكيت معاكي، الجو بارد."; }
+  else { bonus = 10; note=" اللبس مناسب للجو ✨"; }
+  const gain = Math.max(5, d.c + bonus);
+  addCoins(gain); addXp(8); S.moments++;
+  S.day.tasks.out = (S.day.tasks.out||0)+1;
+  S.stats.energy = clamp(S.stats.energy-8,0,100);
+  S.stats.happy = clamp(S.stats.happy+10,0,100);
+  S.photos.push({
+    em: d.em, n: d.n,
+    note,
+    date: new Date().toLocaleDateString("ar-EG")
+  });
+  if(S.photos.length>40) S.photos.shift();
+  save();
+  toast(`خروجة ${d.n}: +${gain} 🪙`);
+  render();
+}
+
+/* ---- kitchen actions ---- */
+function buyIngredient(id){
+  const g = ingById(id); if(!g) return;
+  if(S.coins < g.p){ toast("معاكيش فلوس كفاية 🪙"); return; }
+  S.coins -= g.p;
+  S.kitchen[g.zone][id] = (S.kitchen[g.zone][id]||0)+1;
+  addXp(2); save(); toast(`اشتريتي ${g.n} 🛒`); render();
+}
+function cook(id){
+  const r = RECIPES.find(x=>x.id===id); if(!r) return;
+  if(!canCook(r)){ toast("مكونات ناقصة — اشتريها من المتجر"); return; }
+  Object.keys(r.need).forEach(k=>{
+    const g = ingById(k);
+    S.kitchen[g.zone][k] = Math.max(0, stockOf(k) - r.need[k]);
+  });
+  const book = r.type==="drink"? "drinks":"dishes";
+  S.kitchen[book].push(r.id);
+  if(S.kitchen[book].length>12) S.kitchen[book].shift();
+  S.day.tasks.cook = (S.day.tasks.cook||0)+1;
+  addXp(r.xp||5); save();
+  toast(`عملتي ${r.n}! ${r.type==="drink"?"🧃":"🍳"}`); render();
+}
+function serve(kind, idx){
+  if(kind!=="dishes" && kind!=="drinks") return;
+  const arr = S.kitchen[kind]; if(!arr || idx<0 || idx>=arr.length) return;
+  const r = RECIPES.find(x=>x.id===arr[idx])||{n:"حاجة"};
+  arr.splice(idx,1);
+  addCoins(6); addXp(2); save();
+  toast(`قدّمتي ${r.n} على السفرة +6 🪙`); render();
+}
+
+/* ---- bath actions ---- */
+function bathAct(id){
+  const a = BATH_ACTS.find(x=>x.id===id); if(!a) return;
+  let gain = a.c, msg = `${a.n} ✓ +${a.c} 🪙`;
+  if(id==="shower"){
+    const first = S.bath.lastShower !== dayKey();
+    if(first){ gain += 10; S.bath.lastShower = dayKey(); msg = `دش بماء دافي +${gain} 🪙 — نضفتي وجسمك ارتاح ✨`; }
+    S.day.tasks.bath = (S.day.tasks.bath||0)+1;
+  }
+  const key = {shower:"showers", face:"faces", hands:"hands", teeth:"teeth", hair:"hair", skincare:"skincare"}[id];
+  if(key) S.bath[key] = (S.bath[key]||0)+1;
+  addCoins(gain); addXp(a.xp||2); save(); toast(msg); render();
+}
+
+/* ---- pet actions ---- */
+function findPet(uid){ return S.pets.find(p=>p.uid===uid); }
+function buyPet(kind){
+  const def = petDef(kind); if(!def) return;
+  if(S.pets.length>=6){ toast("عندك 6 حيوانات — الحد الأقصى"); return; }
+  if(S.coins < def.p){ toast("معاكيش فلوس كفاية 🪙"); return; }
+  S.coins -= def.p;
+  S.pets.push({
+    uid: "p"+Date.now().toString(36)+Math.floor(Math.random()*999),
+    kind: def.id, name: def.n, hunger: 70, happy: 65, clean: 85, level: 1,
+    equip: {}, born: dayKey()
+  });
+  addXp(10); save(); toast(`جبتي ${def.n} جديد! 🐾`); render();
+}
+function buySupply(id){
+  const it = petItem(id); if(!it) return;
+  if(S.coins < it.p){ toast("معاكيش فلوس كفاية 🪙"); return; }
+  S.coins -= it.p;
+  S.petItems[id] = (S.petItems[id]||0)+1;
+  addXp(2); save(); toast(`اشتريتي ${it.n} ${it.em}`); render();
+}
+function petAct(uid, act){
+  const p = findPet(uid); if(!p) return;
+  if(act==="feed"){
+    if((S.petItems.petfood||0)<=0){ toast("مفيش أكل — اشتري أكل حيوانات من المتجر 🥫"); return; }
+    S.petItems.petfood -= 1;
+    p.hunger = clamp(p.hunger+30, 0, 100);
+    toast("أكلت وشبعت 🍖");
+  } else if(act==="water"){
+    p.hunger = clamp(p.hunger+8, 0, 100); p.happy = clamp(p.happy+4, 0, 100);
+    toast("شربت مية 💧");
+  } else if(act==="play"){
+    p.happy = clamp(p.happy+18, 0, 100); p.clean = clamp(p.clean-6, 0, 100);
+    toast("لعبتي معاها 🎾");
+  } else if(act==="clean"){
+    p.clean = clamp(p.clean+30, 0, 100); p.happy = clamp(p.happy+6, 0, 100);
+    toast("نضفتيها 🧼");
+  } else if(act==="train"){
+    p.happy = clamp(p.happy+10, 0, 100);
+    p.level = (p.level||1)+1;
+    toast(`اتدربت! المستوى ${p.level} 🎓`);
+  } else return;
+  S.day.tasks.pet = (S.day.tasks.pet||0)+1;
+  addCoins(5); addXp(3); save(); render();
+}
+function petEquip(uid, cat, itemId){
+  const p = findPet(uid); if(!p) return;
+  if(!(S.petItems[itemId]>0)){ toast("الحاجة دي مش عندك — اشتريها الأول"); return; }
+  p.equip = p.equip || {};
+  p.equip[cat] = p.equip[cat]===itemId? null : itemId;
+  save(); render();
+}
+function renamePet(uid, name){
+  const p = findPet(uid); if(!p) return;
+  const n = (name||"").trim();
+  if(!n) return;
+  p.name = n.slice(0,14); save(); render();
+}
+
+/* ---- baby corner actions ---- */
+function buyBabyToy(id){
+  const t = babyToy(id); if(!t) return;
+  if(S.babyCorner.toys.includes(id)){ toast("اللعبة دي عندك بالفعل"); return; }
+  if(S.coins < t.p){ toast("معاكيش فلوس كفاية 🪙"); return; }
+  S.coins -= t.p; S.babyCorner.toys.push(id); addXp(3);
+  save(); toast(`اشتريتي ${t.n} ${t.em}`); render();
+}
+function playBabyToy(id){
+  const t = babyToy(id); if(!t) return;
+  S.stats.happy = clamp(S.stats.happy+8, 0, 100);
+  S.stats.energy = clamp(S.stats.energy-3, 0, 100);
+  S.babyCorner.plays = (S.babyCorner.plays||0)+1;
+  S.day.tasks.play = (S.day.tasks.play||0)+1;
+  addCoins(4); addXp(3); save();
+  toast(`لعبتي ${t.n} مع ${S.babyName||"البيبي"} ${t.em}`); render();
+}
+function buyBabyFood(id){
+  const f = babyFood(id); if(!f) return;
+  if(S.coins < f.p){ toast("معاكيش فلوس كفاية 🪙"); return; }
+  S.coins -= f.p; S.babyCorner.foods[id] = (S.babyCorner.foods[id]||0)+1;
+  addXp(2); save(); toast(`اشتريتي ${f.n} ${f.em}`); render();
+}
+function feedBabyFood(id){
+  const f = babyFood(id); if(!f) return;
+  if((S.babyCorner.foods[id]||0)<=0){ toast("مفيش من الأكل ده — اشتريه الأول"); return; }
+  S.babyCorner.foods[id] -= 1;
+  S.stats.hunger = clamp(S.stats.hunger+f.h, 0, 100);
+  S.stats.happy = clamp(S.stats.happy+5, 0, 100);
+  S.day.tasks.feed = (S.day.tasks.feed||0)+1;
+  addCoins(3); addXp(3); save();
+  toast(`${S.babyName||"البيبي"} أكل ${f.n} ${f.em}`); render();
+}
+function singBabySong(id){
+  const s = babySong(id); if(!s) return;
+  S.stats.happy = clamp(S.stats.happy+4, 0, 100);
+  S.stats.energy = clamp(S.stats.energy+2, 0, 100);
+  S.babyCorner.songs = (S.babyCorner.songs||0)+1;
+  S.babyCorner.lastSong = id;
+  addXp(2); save();
+  toast(`غنيتي «${s.n}» ${s.em}`); render();
+}
+function babyAct(id){
+  const a = BABY_ACTS.find(x=>x.id===id); if(!a) return;
+  S.stats.happy = clamp(S.stats.happy+(a.h||0), 0, 100);
+  S.stats.energy = clamp(S.stats.energy+(a.e||0), 0, 100);
+  S.stats.clean = clamp(S.stats.clean+(a.c||0), 0, 100);
+  S.babyCorner.acts = (S.babyCorner.acts||0)+1;
+  S.day.tasks.play = (S.day.tasks.play||0)+1;
+  addCoins(3); addXp(2); save();
+  toast(`${a.n} ✓ +3 🪙`); render();
+}
+
+/* ================= boot ================= */
+if(!S.started){ S.view = "start"; } else if(!S.view || S.view==="start"){ S.view="home"; }
+if(S.seasonAuto) S.season = seasonNow();
+render();
+// debug/automation hook — read & drive state without touching the UI
+window.__mom = {
+  get state(){ return S; },
+  go, featureList, care, buy, wear, takeOff, outing,
+  buyIngredient, cook, serve, bathAct, buyPet, buySupply, petAct, petEquip, renamePet,
+  buyBabyToy, playBabyToy, buyBabyFood, feedBabyFood, singBabySong, babyAct,
+  get kitchenTab(){ return kf.tab; }, set kitchenTab(v){ kf.tab=v; },
+  get babyTab(){ return bf.tab; }, set babyTab(v){ bf.tab=v; },
+  get storeTab(){ return sf.tab; }, set storeTab(v){ sf.tab=v; },
+  get storeZone(){ return sf.zone; }, set storeZone(v){ sf.zone=v; }
+};
+</script>
+</body>
+</html>
