@@ -393,6 +393,70 @@ const DESTS = [
   {id:"doctor", n:"عيادة الأطفال", em:"🩺", season:"all", c:20},
   {id:"picnic", n:"نزهة في الحديقة", em:"🧺", season:"autumn", c:35}
 ];
+/* 60 خروجة جديدة */
+const DESTS2 = [
+  ["aquarium","الأكواريوم","🐠","all",45],
+  ["museum","المتحف","🏛️","all",30],
+  ["artgallery","معرض الرسم","🎨","all",30],
+  ["pottery","ورشة فخار","🏺","all",35],
+  ["cookingclass","درس طبخ","👩‍🍳","all",40],
+  ["pool","حمام السباحة","🏊","summer",45],
+  ["gym","الجيم","🏋️","all",30],
+  ["spa","يوم سبا","💆","all",50],
+  ["bookstore","مكتبة الكتب","📖","all",25],
+  ["toystore","محل ألعاب","🧸","all",30],
+  ["icecreamshop","محل آيس كريم","🍦","summer",25],
+  ["juicebar","عصير طازة","🧃","summer",20],
+  ["bakery","زيارة المخبز","🥐","all",25],
+  ["flowermarket","سوق الورد","💐","spring",30],
+  ["petshop","محل الحيوانات","🐹","all",30],
+  ["horseclub","نادي الفروسية","🐴","all",50],
+  ["bikeride","ركوب العجلة","🚲","spring",35],
+  ["trainride","رحلة بالقطر","🚆","all",40],
+  ["planetarium","القبة الفلكية","🔭","winter",40],
+  ["sciencemuseum","متحف العلوم","🔬","all",35],
+  ["kidsclub","نادي الأطفال","🧩","all",30],
+  ["puppetshow","مسرح العرايس","🎭","all",35],
+  ["theater","المسرح","🎟️","all",40],
+  ["circus","السيرك","🎪","all",50],
+  ["waterpark","الملاهي المائية","💦","summer",55],
+  ["amusementpark","الملاهي","🎡","all",55],
+  ["sunsetbeach","الشاطئ وقت الغروب","🌅","summer",45],
+  ["deserttrip","رحلة صحراوية","🏜️","autumn",50],
+  ["mountaintrip","رحلة جبلية","⛰️","spring",50],
+  ["camping","تخييم","⛺","autumn",55],
+  ["bbq","شوي في الحديقة","🍖","spring",40],
+  ["gardenpicnic","نزهة في الجنينة","🧺","spring",35],
+  ["kite","طيارة ورقية","🪁","spring",30],
+  ["fishing","رحلة صيد","🎣","summer",40],
+  ["strawberrypick","قطف فراولة","🍓","spring",40],
+  ["orangegrove","بستان برتقان","🍊","winter",35],
+  ["sunflower","حقل عباد الشمس","🌻","summer",40],
+  ["butterfly","حديقة الفراشات","🦋","spring",40],
+  ["birdpark","حديقة الطيور","🦜","all",40],
+  ["dinopark","حديقة الديناصورات","🦕","all",45],
+  ["minigolf","ميني جولف","⛳","all",35],
+  ["bowling","بولينج","🎳","all",35],
+  ["arcade","صالة الألعاب","🕹️","all",30],
+  ["trampoline","ترامبولين","🤸","all",35],
+  ["skating","تزحلق على الجليد","⛸️","winter",45],
+  ["yoga","كلاس يوجا","🧘","all",35],
+  ["momclass","كلاس للأمهات","👩‍👧","all",30],
+  ["storytime","وقت الحكايات","📚","all",25],
+  ["artclass","درس رسم","🎨","all",35],
+  ["musicclass","درس موسيقى","🎵","all",35],
+  ["danceclass","درس رقص","💃","all",35],
+  ["swimlesson","درس سباحة","🏊","summer",40],
+  ["babyphoto","جلسة تصوير البيبي","📸","all",45],
+  ["familyvisit","زيارة العيلة","👨‍👩‍👧","all",25],
+  ["auntvisit","زيارة الخالة","👩","all",25],
+  ["friendgathering","قعدة صاحبات","👭","all",30],
+  ["babyshower","بيبي شاور","🎀","all",40],
+  ["bazaar","بازار خيري","🎪","all",30],
+  ["fleamarket","سوق المستعمل","🛍️","all",25],
+  ["eid","العيد","🎉","all",60]
+].map(([id,n,em,season,c])=>({id,n,em,season,c}));
+DESTS.push(...DESTS2);
 
 const CARE = [
   {id:"feed", n:"رضاعة", em:"🍼", st:{hunger:-32, happy:6, energy:4}, c:12},
@@ -420,7 +484,52 @@ const NURSERY = {
     {id:"doll", n:"عروسة", em:"🪆"}, {id:"ball", n:"كرة", em:"⚽"}]},
   lamp: {n:"ضوء الليل", items:[
     {id:"moon", n:"هلال", em:"🌙"}, {id:"star", n:"نجمة", em:"⭐"},
-    {id:"cloud", n:"سحابة", em:"☁️"}, {id:"heart", n:"قلب", em:"💗"}]}
+    {id:"cloud", n:"سحابة", em:"☁️"}, {id:"heart", n:"قلب", em:"💗"}]},
+  rug: {n:"سجادة الحضانة", items:[
+    {id:"rose", n:"وردي", em:"🌸"}, {id:"peach", n:"خوخي", em:"🍑"},
+    {id:"lemon", n:"ليموني", em:"🍋"}, {id:"mint", n:"نعناعي", em:"🌿"},
+    {id:"sky", n:"سماوي", em:"💙"}, {id:"lilac", n:"بنفسجي", em:"💜"},
+    {id:"beige", n:"بيج", em:"🧺"}, {id:"gray", n:"رمادي", em:"🩶"},
+    {id:"heart", n:"قلب", em:"💗"}, {id:"star", n:"نجمة", em:"⭐"},
+    {id:"rainbow", n:"قوس قزح", em:"🌈"}, {id:"dots", n:"منقّط", em:"🎲"},
+    {id:"stripes", n:"مخطط", em:"🦓"}, {id:"fur", n:"فرو", em:"🐑"},
+    {id:"cotton", n:"قطن", em:"☁️"}, {id:"round", n:"مدوّر", em:"⭕"}]},
+  curtain: {n:"ستارة الشباك", items:[
+    {id:"white", n:"أبيض", em:"🤍"}, {id:"pink", n:"وردي", em:"🌷"},
+    {id:"mint", n:"نعناعي", em:"🌿"}, {id:"blue", n:"سماوي", em:"💙"},
+    {id:"beige", n:"بيج", em:"🧺"}, {id:"gray", n:"رمادي", em:"🩶"},
+    {id:"yellow", n:"أصفر", em:"🌟"}, {id:"purple", n:"بنفسجي", em:"💜"},
+    {id:"stars", n:"نجوم", em:"⭐"}, {id:"moon", n:"قمر", em:"🌙"},
+    {id:"clouds", n:"سحاب", em:"☁️"}, {id:"flowers", n:"ورد", em:"🌸"},
+    {id:"rainbow", n:"قوس قزح", em:"🌈"}, {id:"dots", n:"منقّط", em:"⚪"},
+    {id:"stripes", n:"مخطط", em:"🦓"}, {id:"lace", n:"دانتيل", em:"🎀"}]},
+  mobile: {n:"موبايل معلّق", items:[
+    {id:"stars", n:"نجوم", em:"⭐"}, {id:"moon", n:"قمر", em:"🌙"},
+    {id:"clouds", n:"سحاب", em:"☁️"}, {id:"hearts", n:"قلوب", em:"💗"},
+    {id:"butterflies", n:"فراشات", em:"🦋"}, {id:"birds", n:"عصافير", em:"🐦"},
+    {id:"balloons", n:"بالونات", em:"🎈"}, {id:"rainbow", n:"قوس قزح", em:"🌈"},
+    {id:"flowers", n:"ورد", em:"🌸"}, {id:"fish", n:"سمك", em:"🐠"},
+    {id:"bear", n:"دبدوب", em:"🧸"}, {id:"bunny", n:"أرنوب", em:"🐰"},
+    {id:"duck", n:"بطة", em:"🦆"}, {id:"cars", n:"عربيات", em:"🚗"},
+    {id:"planes", n:"طيارة", em:"✈️"}, {id:"rockets", n:"صاروخ", em:"🚀"}]},
+  shelf: {n:"رف الحضانة", items:[
+    {id:"books", n:"كتب", em:"📚"}, {id:"toys", n:"ألعاب", em:"🧸"},
+    {id:"teddy", n:"دباديب", em:"🧸"}, {id:"blocks", n:"مكعبات", em:"🧱"},
+    {id:"dolls", n:"عرايس", em:"🪆"}, {id:"cars", n:"عربيات", em:"🚗"},
+    {id:"dinos", n:"ديناصورات", em:"🦕"}, {id:"puzzles", n:"بازل", em:"🧩"},
+    {id:"plants", n:"نباتات", em:"🪴"}, {id:"frames", n:"براويز", em:"🖼️"},
+    {id:"candles", n:"شمع", em:"🕯️"}, {id:"baskets", n:"سلال", em:"🧺"},
+    {id:"piggy", n:"حصالة", em:"🐷"}, {id:"musicbox", n:"علبة موسيقى", em:"🎵"},
+    {id:"photo", n:"صور", em:"📷"}, {id:"trophy", n:"كأس", em:"🏆"}]},
+  plant: {n:"نبات الحضانة", items:[
+    {id:"rose", n:"ورد", em:"🌹"}, {id:"tulip", n:"توليب", em:"🌷"},
+    {id:"sunflower", n:"عباد شمس", em:"🌻"}, {id:"cactus", n:"كتكوت صبار", em:"🌵"},
+    {id:"monstera", n:"مونستيرا", em:"🪴"}, {id:"fern", n:"سرخس", em:"🌿"},
+    {id:"lavender", n:"لافندر", em:"🪻"}, {id:"daisy", n:"أقحوان", em:"🌼"},
+    {id:"orchid", n:"أوركيد", em:"🌺"}, {id:"bamboo", n:"بامبو", em:"🎋"},
+    {id:"mint", n:"نعناع", em:"🌱"}, {id:"basil", n:"ريحان", em:"🌿"},
+    {id:"palm", n:"نخلة", em:"🌴"}, {id:"ivy", n:"لبلاب", em:"🍃"},
+    {id:"bonsai", n:"بونساي", em:"🎍"}, {id:"lucky", n:"برسيم", em:"🍀"}]}
 };
 
 /* ================= kitchen / bath / pets data ================= */
@@ -471,6 +580,110 @@ const RECIPES = [
   {id:"coffee", n:"قهوة باللبن", em:"☕", type:"drink", need:{coffee:1, milk:1}, xp:5, c:8},
   {id:"tea", n:"شاي بالنعناع", em:"🍵", type:"drink", need:{tea:1, mint:1, sugar:1}, xp:5, c:8}
 ];
+/* 100 وصفة جديدة — كلها بتتطبخ فعليًا من نفس مكونات المطبخ */
+const RECIPES2 = [
+  ["kabsa","كبسة فراخ","🍛","dish",{rice:1,chicken:1,oil:1},14,22],
+  ["maqluba","مقلوبة","🍲","dish",{rice:1,meat:1,oil:1},16,26],
+  ["shakshuka","شكشوكة","🍳","dish",{eggs:1,tomato:1,oil:1},10,14],
+  ["eggomelette","عجة بيض","🍳","dish",{eggs:1,flour:1,oil:1},9,12],
+  ["pizza","بيتزا","🍕","dish",{flour:1,cheese:1,tomato:1},14,22],
+  ["maccheese","مكرونة بالجبنة","🧀","dish",{pasta:1,cheese:1,milk:1},12,18],
+  ["nargisco","مكرونة نجرسكو","🍝","dish",{pasta:1,chicken:1,milk:1,cheese:1},16,26],
+  ["kofta","كفتة","🍖","dish",{meat:1,rice:1,oil:1},14,22],
+  ["kebab","كباب","🍢","dish",{meat:1,oil:1},15,24],
+  ["friedfish","سمك مقلي","🐟","dish",{fish:1,flour:1,oil:1},13,20],
+  ["ringa","رنجة","🐟","dish",{fish:1,oil:1},10,14],
+  ["mahshi","محشي","🍆","dish",{rice:1,oil:1,tomato:1},12,18],
+  ["vegsoup","شوربة خضار","🥣","dish",{frozenveg:1,oil:1},8,12],
+  ["ovenpotato","بطاطس بالفرن","🥔","dish",{fries:1,oil:1},8,12],
+  ["mashedpotato","بطاطس مهروسة","🥔","dish",{fries:1,milk:1,butter:1},9,14],
+  ["cheesalad","سلطة جبنة","🥗","dish",{cheese:1,cucumber:1,tomato:1},8,12],
+  ["cheesepie","فطيرة جبنة","🥧","dish",{flour:1,cheese:1,butter:1},12,18],
+  ["chicksand","ساندويتش فراخ","🥪","dish",{chicken:1,cheese:1,tomato:1},10,16],
+  ["burger","برجر لحم","🍔","dish",{meat:1,flour:1,tomato:1},14,22],
+  ["honeypie","فطائر عسل","🥮","dish",{flour:1,honey:1,butter:1},11,16],
+  ["croissant","كرواسون","🥐","dish",{flour:1,butter:1,milk:1},11,16],
+  ["donut","دونات","🍩","dish",{flour:1,sugar:1,milk:1,oil:1},12,18],
+  ["cookies","كوكيز","🍪","dish",{flour:1,sugar:1,butter:1,chocolate:1},12,18],
+  ["brownie","براوني","🍫","dish",{chocolate:1,butter:1,flour:1,eggs:1},13,20],
+  ["cheesecake","تشيز كيك","🍰","dish",{cheese:1,butter:1,sugar:1,strawberry:1},16,26],
+  ["tiramisu","تيراميسو","🍰","dish",{coffee:1,cheese:1,sugar:1,flour:1},16,26],
+  ["honeycake","كيكة عسل","🍯","dish",{flour:1,honey:1,eggs:1},12,18],
+  ["orangecake","كيك برتقان","🍊","dish",{flour:1,orange:1,sugar:1,eggs:1},12,18],
+  ["bananacake","كيك موز","🍌","dish",{flour:1,banana:1,butter:1,eggs:1},12,18],
+  ["mangopancake","بان كيك مانجو","🥞","dish",{flour:1,eggs:1,milk:1,mango:1},12,18],
+  ["waffle","وافل","🧇","dish",{flour:1,milk:1,butter:1,sugar:1},11,16],
+  ["chocpudding","بودينج شوكولاتة","🍮","dish",{milk:1,chocolate:1,sugar:1},9,14],
+  ["mahalabia","مهلبية","🍮","dish",{milk:1,sugar:1,rice:1},9,14],
+  ["ricepudding","أرز بلبن","🍚","dish",{rice:1,milk:1,sugar:1},9,14],
+  ["omali","أم علي","🥣","dish",{milk:1,flour:1,sugar:1},11,16],
+  ["basbousa","بسبوسة","🍰","dish",{flour:1,milk:1,sugar:1,butter:1},12,18],
+  ["kunafa","كنافة","🧁","dish",{flour:1,cheese:1,sugar:1},14,22],
+  ["qatayef","قطايف","🥟","dish",{flour:1,cheese:1,honey:1},13,20],
+  ["luqaimat","لقمة القاضي","🍩","dish",{flour:1,sugar:1,oil:1},12,18],
+  ["zalabia","زلابية","🍩","dish",{flour:1,sugar:1,oil:1,honey:1},12,18],
+  ["orangejuice","عصير برتقان","🧃","drink",{orange:1,sugar:1},5,8],
+  ["strawberryjuice","عصير فراولة","🧃","drink",{strawberry:1,milk:1,sugar:1},6,10],
+  ["bananajuice","عصير موز","🧃","drink",{banana:1,milk:1,honey:1},6,10],
+  ["chocshake","ميلك شيك شوكولاتة","🥤","drink",{milk:1,chocolate:1,icecream:1},8,14],
+  ["strawshake","ميلك شيك فراولة","🥤","drink",{milk:1,strawberry:1,icecream:1},8,14],
+  ["mangosmoothie","سموذي مانجو","🥤","drink",{mango:1,yoghurt:1,milk:1},7,12],
+  ["bananosmoothie","سموذي موز","🥤","drink",{banana:1,yoghurt:1,honey:1},7,12],
+  ["mintorange","نعناع بالبرتقان","🍹","drink",{mint:1,orange:1,soda:1},7,12],
+  ["milktea","شاي باللبن","🍵","drink",{tea:1,milk:1,sugar:1},5,8],
+  ["turkishcoffee","قهوة تركي","☕","drink",{coffee:1,sugar:1},5,8],
+  ["cappuccino","كابتشينو","☕","drink",{coffee:1,milk:1,sugar:1},6,10],
+  ["latte","لاتيه","☕","drink",{coffee:1,milk:1},6,10],
+  ["mocha","موكا","☕","drink",{coffee:1,chocolate:1,milk:1},7,12],
+  ["hotchoc","شوكولاتة ساخنة","☕","drink",{milk:1,chocolate:1,sugar:1},6,10],
+  ["mintsoda","صودا بالنعناع","🥤","drink",{soda:1,mint:1},5,8],
+  ["strawsoda","صودا فراولة","🥤","drink",{soda:1,strawberry:1,sugar:1},6,10],
+  ["fruitcocktail","كوكتيل فواكه","🍹","drink",{banana:1,mango:1,orange:1,strawberry:1},9,16],
+  ["mangoice","آيس كريم مانجو","🍨","dish",{icecream:1,mango:1},7,12],
+  ["chocice","آيس كريم شوكولاتة","🍨","dish",{icecream:1,chocolate:1},7,12],
+  ["vanilaice","آيس كريم فانيليا","🍨","dish",{milk:1,icecream:1,sugar:1},7,12],
+  ["fruitsalad","سلطة فواكه","🍉","dish",{banana:1,strawberry:1,mango:1},8,12],
+  ["honeyyogurt","زبادي بالعسل","🍯","dish",{yoghurt:1,honey:1},6,10],
+  ["strawyogurt","زبادي فراولة","🍓","dish",{yoghurt:1,strawberry:1},6,10],
+  ["cheesetomato","جبنة بالطماطم","🧀","dish",{cheese:1,tomato:1,cucumber:1},7,10],
+  ["cheesetoast","توست بالجبنة","🍞","dish",{cheese:1,butter:1},6,10],
+  ["honeytoast","توست بالعسل","🍞","dish",{flour:1,honey:1},6,10],
+  ["boiledegg","بيض مسلوق","🥚","dish",{eggs:1},5,8],
+  ["friedegg","بيض مقلي","🍳","dish",{eggs:1,oil:1},6,9],
+  ["cheeseomelette","أومليت بالجبنة","🍳","dish",{eggs:1,cheese:1,butter:1},8,12],
+  ["cheesefries","بطاطس بالجبنة","🍟","dish",{fries:1,cheese:1,butter:1},9,14],
+  ["creamfries","بطاطس بالكريمة","🍟","dish",{fries:1,milk:1,butter:1},9,14],
+  ["grilledchick","دجاج مشوي","🍗","dish",{chicken:1,oil:1,mint:1},13,20],
+  ["mintchick","دجاج بالنعناع","🍗","dish",{chicken:1,mint:1,oil:1},13,20],
+  ["steak","ستيك لحم","🥩","dish",{meat:1,butter:1,oil:1},16,26],
+  ["grilledmeat","لحم مشوي","🍖","dish",{meat:1,oil:1},15,24],
+  ["ovenfish","سمك بالفرن","🐟","dish",{fish:1,oil:1,tomato:1},13,20],
+  ["creamfish","سمك بالكريمة","🐟","dish",{fish:1,milk:1,butter:1},14,22],
+  ["sayadieh","أرز صيادية","🍚","dish",{rice:1,fish:1,oil:1},14,22],
+  ["milkyrice","أرز بالحليب","🍚","dish",{rice:1,milk:1},8,12],
+  ["pastasauce","مكرونة بالصلصة","🍝","dish",{pasta:1,tomato:1,oil:1},10,16],
+  ["pastabechamel","مكرونة بشاميل باللحمة","🍝","dish",{pasta:1,meat:1,milk:1},15,24],
+  ["lasagna","لازانيا","🧀","dish",{pasta:1,meat:1,cheese:1},16,26],
+  ["vegpasta","مكرونة بالخضار","🍝","dish",{pasta:1,frozenveg:1,oil:1},10,16],
+  ["pastasoup","شوربة مكرونة","🍲","dish",{pasta:1,frozenveg:1,tomato:1},9,14],
+  ["vegpizza","بيتزا خضار","🍕","dish",{flour:1,cheese:1,tomato:1,frozenveg:1},14,22],
+  ["chickpizza","بيتزا فراخ","🍕","dish",{flour:1,cheese:1,chicken:1},15,24],
+  ["honeycheesepie","فطيرة عسل وجبنة","🥧","dish",{flour:1,cheese:1,honey:1},12,18],
+  ["cheesebread","خبز بالجبنة","🍞","dish",{flour:1,cheese:1,butter:1},9,14],
+  ["choccreamcake","كيك شوكولاتة بالكريمة","🍰","dish",{flour:1,chocolate:1,milk:1},13,20],
+  ["strawcake","كيك فراولة","🍰","dish",{flour:1,strawberry:1,butter:1,eggs:1},13,20],
+  ["mangocake","كيك مانجو","🍰","dish",{flour:1,mango:1,butter:1},12,18],
+  ["orangechoccake","كيك برتقان وشوكولاتة","🍰","dish",{flour:1,orange:1,chocolate:1},13,20],
+  ["chocmuffin","مافن شوكولاتة","🧁","dish",{flour:1,chocolate:1,sugar:1},10,16],
+  ["chocpancake","بان كيك بالشوكولاتة","🥞","dish",{flour:1,chocolate:1,milk:1},11,16],
+  ["chickcheesesand","ساندويتش فراخ بالجبنة","🥪","dish",{chicken:1,cheese:1,flour:1},11,18],
+  ["meatsand","ساندويتش لحمة","🥪","dish",{meat:1,flour:1,tomato:1},12,18],
+  ["butterytoast","توست بالزبدة والعسل","🍞","dish",{flour:1,butter:1,honey:1},8,12],
+  ["honeybananashake","لبن بالعسل والموز","🥤","drink",{milk:1,honey:1,banana:1},7,12],
+  ["chocbananashake","شوكولاتة وموز","🥤","drink",{milk:1,chocolate:1,banana:1},7,12],
+  ["creamchicksoup","شوربة فراخ بالكريمة","🥣","dish",{chicken:1,milk:1,butter:1},12,18]
+].map(([id,n,em,type,need,xp,c])=>({id,n,em,type,need,xp,c}));
+RECIPES.push(...RECIPES2);
 const BATH_ACTS = [
   {id:"shower", n:"دش بماء دافي", em:"🚿", c:15, xp:5},
   {id:"face", n:"غسل الوجه", em:"🧼", c:8, xp:3},
@@ -616,6 +829,175 @@ const BABY_ACTS = [
   {id:"a39",n:"عدّ النجوم",em:"✨",h:6,e:1,c:0},{id:"a40",n:"دعاء الصباح",em:"🌅",h:8,e:2,c:0}
 ];
 
+/* ---- 100 كارت تعليم للبيبي ---- */
+const LEARN_CATS = {letters:"الحروف", numbers:"الأرقام", colors:"الألوان", animals:"الحيوانات", words:"كلمات"};
+const BABY_LEARN = [
+  ["alif","letters","أ (ألف)","🐰","أرنب"],
+  ["ba","letters","ب (باء)","🦆","بطة"],
+  ["ta","letters","ت (تاء)","🍎","تفاحة"],
+  ["tha","letters","ث (ثاء)","🦊","ثعلب"],
+  ["jeem","letters","ج (جيم)","🐪","جمل"],
+  ["haa","letters","ح (حاء)","🐴","حصان"],
+  ["kha","letters","خ (خاء)","🐑","خروف"],
+  ["dal","letters","د (دال)","🧸","دبدوب"],
+  ["dhal","letters","ذ (ذال)","🌽","ذرة"],
+  ["ra","letters","ر (راء)","🪶","ريشة"],
+  ["zay","letters","ز (زاي)","🦒","زرافة"],
+  ["seen","letters","س (سين)","🐟","سمكة"],
+  ["sheen","letters","ش (شين)","☀️","شمس"],
+  ["sad","letters","ص (صاد)","🦅","صقر"],
+  ["dad","letters","ض (ضاد)","🐸","ضفدع"],
+  ["taa","letters","ط (طاء)","✈️","طيارة"],
+  ["zaa","letters","ظ (ظاء)","✉️","ظرف"],
+  ["ain","letters","ع (عين)","🐦","عصفور"],
+  ["ghain","letters","غ (غين)","☁️","غيمة"],
+  ["fa","letters","ف (فاء)","🐘","فيل"],
+  ["qaf","letters","ق (قاف)","🌙","قمر"],
+  ["kaf","letters","ك (كاف)","📚","كتاب"],
+  ["lam","letters","ل (لام)","🍋","ليمون"],
+  ["meem","letters","م (ميم)","🍌","موز"],
+  ["noon","letters","ن (نون)","⭐","نجمة"],
+  ["ha","letters","ه (هاء)","🎁","هدية"],
+  ["waw","letters","و (واو)","🌷","وردة"],
+  ["ya","letters","ي (ياء)","✋","يد"],
+  ["n1","numbers","١ — واحد","🍎","تفاحة واحدة"],
+  ["n2","numbers","٢ — اتنين","🐣","كتكوتين"],
+  ["n3","numbers","٣ — تلاتة","🍓","تلات فراولات"],
+  ["n4","numbers","٤ — أربعة","🌸","أربع وردات"],
+  ["n5","numbers","٥ — خمسة","⭐","خمس نجوم"],
+  ["n6","numbers","٦ — ستة","🎈","ست بالونات"],
+  ["n7","numbers","٧ — سبعة","🌈","سبع ألوان"],
+  ["n8","numbers","٨ — تمانية","🐟","تمان سمكات"],
+  ["n9","numbers","٩ — تسعة","🍪","تسع بسكوتات"],
+  ["n10","numbers","١٠ — عشرة","🎉","عشر أصابع"],
+  ["red","colors","أحمر","❤️","لون القلب"],
+  ["blue","colors","أزرق","💙","لون السما"],
+  ["yellow","colors","أصفر","💛","لون الشمس"],
+  ["green","colors","أخضر","💚","لون الشجر"],
+  ["orange","colors","برتقاني","🧡","لون البرتقان"],
+  ["purple","colors","بنفسجي","💜","لون البنفسج"],
+  ["pink","colors","وردي","🩷","لون الورد"],
+  ["brown","colors","بني","🤎","لون الشوكولاتة"],
+  ["black","colors","أسود","🖤","لون الليل"],
+  ["white","colors","أبيض","🤍","لون اللبن"],
+  ["an_cat","animals","قطة","🐱","بتقول مياو"],
+  ["an_dog","animals","كلب","🐶","بيحرس البيت"],
+  ["an_cow","animals","بقرة","🐮","بتدي لبن"],
+  ["an_sheep","animals","خروف","🐑","صوفه ناعم"],
+  ["an_horse","animals","حصان","🐴","بيجري بسرعة"],
+  ["an_rooster","animals","ديك","🐓","بيصحّي الصبح"],
+  ["an_hen","animals","فرخة","🐔","بتدي بيض"],
+  ["an_duck","animals","بطة","🦆","بتعوم في المية"],
+  ["an_rabbit","animals","أرنب","🐰","بيحب الجزرة"],
+  ["an_mouse","animals","فأر","🐭","صوته صغير"],
+  ["an_lion","animals","أسد","🦁","ملك الغابة"],
+  ["an_tiger","animals","نمر","🐯","عنده خطوط"],
+  ["an_elephant","animals","فيل","🐘","خرطومه طويل"],
+  ["an_monkey","animals","قرد","🐵","بيحب الموز"],
+  ["an_giraffe","animals","زرافة","🦒","رقبتها طويلة"],
+  ["an_bear","animals","دب","🐻","بيحب العسل"],
+  ["an_frog","animals","ضفدع","🐸","بينطّ عالي"],
+  ["an_fish","animals","سمكة","🐟","بتعيش في المية"],
+  ["an_bird","animals","عصفور","🐦","بيطير في السما"],
+  ["an_turtle","animals","سلحفاة","🐢","بيتها على ضهرها"],
+  ["w_door","words","باب","🚪","بندخل منه"],
+  ["w_window","words","شباك","🪟","بنشوف منه"],
+  ["w_chair","words","كرسي","🪑","بنقعد عليه"],
+  ["w_bed","words","سرير","🛏️","بننام عليه"],
+  ["w_cup","words","كوب","🥛","بنشرب فيه"],
+  ["w_spoon","words","ملعقة","🥄","بناكل بيها"],
+  ["w_plate","words","طبق","🍽️","بنحط فيه الأكل"],
+  ["w_sun","words","شمس","☀️","بتنوّر الصبح"],
+  ["w_moon","words","قمر","🌙","بيطلع بالليل"],
+  ["w_star","words","نجمة","⭐","بتلمع في السما"],
+  ["w_tree","words","شجرة","🌳","بتدي ظل"],
+  ["w_flower","words","وردة","🌷","ريحتها حلوة"],
+  ["w_water","words","مية","💧","بنشربها"],
+  ["w_house","words","بيت","🏠","بنعيش فيه"],
+  ["w_car","words","عربية","🚗","بتمشي في الشارع"],
+  ["w_plane","words","طيارة","✈️","بتطير فوق السحاب"],
+  ["w_train","words","قطر","🚂","بيمشي على قضبان"],
+  ["w_ball","words","كورة","⚽","بنلعب بيها"],
+  ["w_book","words","كتاب","📚","بنقرا فيه"],
+  ["w_pen","words","قلم","✏️","بنكتب بيه"],
+  ["w_phone","words","تليفون","📱","بنكلم بيه"],
+  ["w_clock","words","ساعة","⏰","بتقولنا الوقت"],
+  ["w_shoe","words","جزمة","👟","بنلبسها في رجلينا"],
+  ["w_hat","words","طاقية","🧢","بنلبسها على راسنا"],
+  ["w_dress","words","فستان","👗","بنلبسه في المناسبات"],
+  ["w_heart","words","قلب","❤️","بيحب"],
+  ["w_hand","words","إيد","✋","بنسلّم بيها"],
+  ["w_eye","words","عين","👁️","بنشوف بيها"],
+  ["w_tooth","words","سنان","🦷","بنمضغ بيهم"],
+  ["w_hair","words","شعر","💇","بيتسرّح"],
+  ["w_hug","words","حضن","🤗","بيدّي أمان"],
+  ["w_laugh","words","ضحكة","😄","بتفرّح القلب"]
+].map(([id,cat,n,em,line])=>({id,cat,n,em,line}));
+
+/* ---- 60 حكاية قبل النوم ---- */
+const BABY_STORIES = [
+  {id:"st1",n:"النجمة الصغيرة",em:"⭐",line:"نجمة صغيرة كانت بتخاف من الضلمة، لحد ما عرفت إن الضلمة هي اللي بتخلي نورها يبان."},
+  {id:"st2",n:"القمر الحنون",em:"🌙",line:"القمر سأل البيبي: نمتي؟ البيبي ضحك، فغنّى له لحد ما نام."},
+  {id:"st3",n:"الأرنوب الشاطر",em:"🐰",line:"أرنوب كان بيدوّر على جزرة، لقاها وشاركها مع صاحبه."},
+  {id:"st4",n:"البطة الرحّالة",em:"🦆",line:"بطة مشيت ورا أمها في البركة، واتعلمت تعوم لوحدها."},
+  {id:"st5",n:"الدبدوب المسافر",em:"🧸",line:"دبدوب سافر في خيال البيبي، شاف نجوم كتير ورجع بالسلامة."},
+  {id:"st6",n:"الفراشة الجميلة",em:"🦋",line:"فراشة طارت من وردة لوردة، وكل وردة قالتلها صباح الخير."},
+  {id:"st7",n:"الشجرة الكبيرة",em:"🌳",line:"شجرة كبيرة كانت بتدي ظل لكل اللي ييجي تحتها."},
+  {id:"st8",n:"القطة الكسولة",em:"🐱",line:"قطة نامت في الشمس، وصحيت على صوت عصفور بيغني."},
+  {id:"st9",n:"الكلب الوفي",em:"🐶",line:"كلب صغير استنى صاحبه على الباب لحد ما رجع."},
+  {id:"st10",n:"السمكة الذكية",em:"🐟",line:"سمكة صغيرة عرفت تسبح بعيد عن الشبكة ووصلت لأهلها."},
+  {id:"st11",n:"النحلة الشغولة",em:"🐝",line:"نحلة جمعت رحيق من كل الورد، وعملت عسل حلو لكل العيلة."},
+  {id:"st12",n:"الفيل الطيب",em:"🐘",line:"فيل كبير ساعد نملة صغيرة تعدّي النهر."},
+  {id:"st13",n:"الزرافة الطويلة",em:"🦒",line:"زرافة شافت من فوق كل حاجة، ونبّهت الحيوانات إن المية جاية."},
+  {id:"st14",n:"الأسد الحنون",em:"🦁",line:"أسد زمجر بصوت عالي، لكنه كان بيحمي صغاره."},
+  {id:"st15",n:"العصفور الصغير",em:"🐦",line:"عصفور اتعلم يطير، وقع مرة وقام تاني وطار."},
+  {id:"st16",n:"السلحفاة الصبورة",em:"🐢",line:"سلحفاة مشيت ببطء لكنها وصلت قبل الكل لأنها ما وقفتش."},
+  {id:"st17",n:"النملة القوية",em:"🐜",line:"نملة شالت حبة كبيرة مع صحابها، وعملوا بيت جديد."},
+  {id:"st18",n:"القرد المرح",em:"🐵",line:"قرد لعب على الشجرة وضحّك كل الحيوانات."},
+  {id:"st19",n:"الخروف الناعم",em:"🐑",line:"خروف صوته كان حلو، ونوّم كل القطيع بصوته."},
+  {id:"st20",n:"الحصان السريع",em:"🐴",line:"حصان جري في الحقل، والريح كانت بتحب تجري معاه."},
+  {id:"st21",n:"البقرة الحلوب",em:"🐮",line:"بقرة أدّت لبن لكل البيبي في البيت، وكانت مبسوطة."},
+  {id:"st22",n:"الديك النشيط",em:"🐓",line:"ديك صاح الصبح، وصحّى الشمس عشان تطلع."},
+  {id:"st23",n:"الضفدع الشاطر",em:"🐸",line:"ضفدع نطّ من ورقة لورقة، ووصل للبركة قبل المطر."},
+  {id:"st24",n:"الزرافة والفيل",em:"🦒",line:"زرافة وفيل اتعلموا يشاركوا الأكل، وبقوا أصحاب."},
+  {id:"st25",n:"النجمة والقمر",em:"⭐",line:"نجمة وقمر اتكلموا بالليل، وقالوا للبيبي تصبح على خير."},
+  {id:"st26",n:"الشمس الصغيرة",em:"☀️",line:"شمس نوّرت البيت من الصبح، والبيبي ضحك من أول شعاع."},
+  {id:"st27",n:"المطر اللطيف",em:"🌧️",line:"مطر نزل بلطف على الشباك، والبيبي عدّ القطرات لحد ما نام."},
+  {id:"st28",n:"قوس قزح",em:"🌈",line:"بعد المطر طلع قوس قزح، وكل لونه قال حكاية."},
+  {id:"st29",n:"الوردة الحمرا",em:"🌹",line:"وردة في الجنينة كانت بتبتسم لكل اللي يشمها."},
+  {id:"st30",n:"البالونة الطايرة",em:"🎈",line:"بالونة طارت في السما، وشاف البيبي منها البيت صغير خالص."},
+  {id:"st31",n:"الطيارة الورقية",em:"🪁",line:"طيارة ورقية طارت مع الريح، ووقعت في حضن البيبي."},
+  {id:"st32",n:"القطر السريع",em:"🚂",line:"قطر مشي على القضبان، ووصل كل محطة في وقتها."},
+  {id:"st33",n:"العربية الصغيرة",em:"🚗",line:"عربية صغيرة ركبت البيبي لفّت بيها الحتة ورجعت."},
+  {id:"st34",n:"المركب الهادية",em:"⛵",line:"مركب شالت البيبي في نهر هادي، والموج كان بيغنّي."},
+  {id:"st35",n:"البيت الحلو",em:"🏠",line:"بيت صغير فيه حضن كبير، وده أحلى بيت في الدنيا."},
+  {id:"st36",n:"الباب السحري",em:"🚪",line:"باب في أوضة البيبي بيفتح على دنيا مليانة ألعاب."},
+  {id:"st37",n:"الكرسي الهزاز",em:"🪑",line:"كرسي هزّ البيبي بهدوء لحد ما عيونه نامت."},
+  {id:"st38",n:"السرير الدافي",em:"🛏️",line:"سرير ناعم حضن البيبي، والوسادة قالتله تصبح على خير."},
+  {id:"st39",n:"الكوباية السحرية",em:"🥛",line:"كوباية لبن جواها قوة البيبي كل يوم."},
+  {id:"st40",n:"الملعقة الشاطرة",em:"🥄",line:"ملعقة صغيرة كانت بتقول للبيبي: افتح بقك، ديه معلقة تقوّيك."},
+  {id:"st41",n:"الطبق الملوّن",em:"🍽️",line:"طبق فيه ألوان، وكل لون كان بيقول للبيبي: كلني وأنا مفيد."},
+  {id:"st42",n:"الكتاب الممتع",em:"📚",line:"كتاب فيه صور، والبيبي قعد يتأملها ويتعلم أسماء."},
+  {id:"st43",n:"القلم العجيب",em:"✏️",line:"قلم رسم للبيبي وشوش ضاحكة على الورق."},
+  {id:"st44",n:"التليفون السعيد",em:"📱",line:"تليفون رنّ، وكانت ماما بتقول للبيبي: وحشتيني."},
+  {id:"st45",n:"الساعة المظبوطة",em:"⏰",line:"ساعة قالتلنا وقت النوم، والبيبي سمع ونام فورًا."},
+  {id:"st46",n:"الجزمة السريعة",em:"👟",line:"جزمة خدت البيبي مشوار طويل ورجّعته بيته."},
+  {id:"st47",n:"الطاقية الحلوة",em:"🧢",line:"طاقية حمت البيبي من الشمس، وكان شكلها لذيذ."},
+  {id:"st48",n:"الفستان الجميل",em:"👗",line:"فستان جديد لبسه البيبي، ولفّ في البيت زي الأميرة."},
+  {id:"st49",n:"القلب الكبير",em:"❤️",line:"قلب كبير بيحب البيبي، وبيدق له كل يوم."},
+  {id:"st50",n:"الإيد الحنونة",em:"✋",line:"إيد بتمسك إيد البيبي، وهو حاسس بالأمان."},
+  {id:"st51",n:"العين الشايفة",em:"👁️",line:"عين البيبي شافت أول ضحكة، وافتكرتها للأبد."},
+  {id:"st52",n:"السنان الصغيرة",em:"🦷",line:"سنّة صغيرة طلعت للبيبي، وضحكته بقت أحلى."},
+  {id:"st53",n:"الحضن الدافي",em:"🤗",line:"حضن من ماما كان أقوى من أي دوا."},
+  {id:"st54",n:"الضحكة الحلوة",em:"😄",line:"ضحكة البيبي عدّت على البيت كله، والبيت بقى أسعد."},
+  {id:"st55",n:"النوم الهادي",em:"😴",line:"البيبي نام، والبيت سكت، والنجوم سهرت عليه."},
+  {id:"st56",n:"الحلم الجميل",em:"💭",line:"البيبي شاف حلم جميل، كان فيه حديقة وحيوانات بتلعب."},
+  {id:"st57",n:"الصباح الجديد",em:"🌅",line:"الشمس طلعت، والبيبي صحى، ويوم جديد بدأ."},
+  {id:"st58",n:"الأذان الحلو",em:"🕌",line:"صوت الأذان لفّ في البيت، والبيبي سمع وسكت بهدوء."},
+  {id:"st59",n:"الدعاء الصغير",em:"🤲",line:"ماما دعت للبيبي، وربنا سمع الدعاء."},
+  {id:"st60",n:"الحكاية الأخيرة",em:"🌟",line:"كل ليلة في حكاية جديدة، وكل حكاية بتبدأ بحضن."}
+];
+
 /* ================= state ================= */
 function defaults(){
   const season = seasonNow();
@@ -634,7 +1016,8 @@ function defaults(){
     owned:["midi_rose","short_rose","long_pink","midi_blue","top_blouse_white","bottom_skirt_beige",
       "shoes_flats_white","shoes_sneakers_white","bag_tote_beige","acc_headband_rose",
       "b_onesie_white","b_onesie_rose","b_onesie_blue","b_hat_white","b_bootie_white"],
-    nursery:{crib:"pink", wall:"stars", toy:"bear", lamp:"moon"},
+    nursery:{crib:"pink", wall:"stars", toy:"bear", lamp:"moon",
+      rug:"rose", curtain:"white", mobile:"stars", shelf:"books", plant:"rose"},
     photos:[], diary:[], moments:0,
     modules:{makeup:true, wardrobe:true, outings:true, nursery:true, album:true,
       kitchen:true, bath:true, pets:true, store:true, babyCorner:true},
@@ -650,7 +1033,8 @@ function defaults(){
     pets:[],
     petItems:{petfood:2},
     petHouse:{},
-    babyCorner:{toys:[], foods:{}, plays:0, songs:0, acts:0, lastSong:null}
+    babyCorner:{toys:[], foods:{}, plays:0, songs:0, acts:0, lastSong:null,
+      learned:[], stories:0, lastStory:null}
   };
 }
 function dayKey(){ const d=new Date(); return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate(); }
@@ -676,8 +1060,11 @@ function load(){
     if(!Array.isArray(s.pets)) s.pets = [];
     s.petItems = Object.assign({}, s.petItems||{});
     if(!s.petHouse || typeof s.petHouse!=="object") s.petHouse = {};
-    s.babyCorner = Object.assign({toys:[], foods:{}, plays:0, songs:0, acts:0, lastSong:null}, s.babyCorner||{});
+    s.babyCorner = Object.assign({toys:[], foods:{}, plays:0, songs:0, acts:0, lastSong:null,
+      learned:[], stories:0, lastStory:null}, s.babyCorner||{});
     if(!Array.isArray(s.babyCorner.toys)) s.babyCorner.toys = [];
+    if(!Array.isArray(s.babyCorner.learned)) s.babyCorner.learned = [];
+    s.babyCorner.stories = +s.babyCorner.stories||0;
     if(!s.babyCorner.foods || typeof s.babyCorner.foods!=="object") s.babyCorner.foods = {};
     return s;
   }catch(e){ return defaults(); }
@@ -1300,7 +1687,7 @@ function babyFood(id){ return BABY_FOODS.find(x=>x.id===id); }
 function babySong(id){ return BABY_SONGS.find(x=>x.id===id); }
 function viewBabyCorner(){
   const bc = S.babyCorner;
-  const tabs = [["toys","🧸","ألعاب"],["food","🍼","أكل"],["songs","🎵","أغاني"],["acts","🤹","أنشطة"]];
+  const tabs = [["toys","🧸","ألعاب"],["food","🍼","أكل"],["songs","🎵","أغاني"],["acts","🤹","أنشطة"],["learn","🔤","تعلّم"],["stories","📖","حكايات"]];
   if(!tabs.some(t=>t[0]===bf.tab)) bf.tab = "toys";
   let body = "";
   if(bf.tab==="toys"){
@@ -1335,6 +1722,32 @@ function viewBabyCorner(){
       <button class="btn soft" data-sing="${s.id}" style="padding:8px 12px">غني</button>
     </div>`).join("")}</div>
     <p class="muted" style="text-align:center">غنيتي ${bc.songs||0} أغنية لحد دلوقتي</p>`;
+  } else if(bf.tab==="learn"){
+    const learned = Array.isArray(bc.learned)? bc.learned : [];
+    body = `<div class="card"><b>كروت التعليم</b><p class="muted" style="margin:4px 0 0">${BABY_LEARN.length} كارت — حروف وأرقام وألوان وحيوانات وكلمات. دوسي على الكارت عشان تعلّميه للبيبي وتاخدي مكافأة.</p>
+    <div class="muted" style="margin-top:6px">اتعلمتي ${learned.length} من ${BABY_LEARN.length} كارت</div></div>` +
+    Object.keys(LEARN_CATS).map(cat=>{
+      const list = BABY_LEARN.filter(x=>x.cat===cat);
+      const done = list.filter(x=>learned.includes(x.id)).length;
+      return `<h2 class="sec">${LEARN_CATS[cat]} <small>${done}/${list.length}</small></h2>
+      <div class="grid2">${list.map(c=>{
+        const own = learned.includes(c.id);
+        return `<div class="card" style="margin:0;text-align:center;padding:12px;${own?"border-color:#3fb2a8":""}">
+          <div style="font-size:30px">${c.em}</div>
+          <b style="font-size:15px">${c.n}</b>
+          <div class="muted" style="margin:2px 0 8px">${c.line}</div>
+          <button class="btn ${own?"soft":""}" data-learn="${c.id}" style="width:100%">${own?"اتعلمناها ✓":"علّميها"}</button>
+        </div>`;
+      }).join("")}</div>`;
+    }).join("");
+  } else if(bf.tab==="stories"){
+    const lastS = BABY_STORIES.find(x=>x.id===bc.lastStory);
+    body = `<div class="card"><b>حكايات قبل النوم</b><p class="muted" style="margin:4px 0 0">${BABY_STORIES.length} حكاية — اقرايها للبيبي قبل النوم، كل حكاية بتريحه وبتفرحه.</p>
+    <div class="muted" style="margin-top:6px">قريتي ${bc.stories||0} حكاية${lastS?` · آخر حكاية: ${lastS.n}`:""}</div></div>
+    <div class="card">${BABY_STORIES.map(s=>`<div class="feat">
+      <div class="sp"><b>${s.em} ${s.n}</b><div class="muted">${s.line}</div></div>
+      <button class="btn soft" data-story="${s.id}" style="padding:8px 12px">اقريها</button>
+    </div>`).join("")}</div>`;
   } else {
     body = `<div class="card"><b>أنشطة وحركات</b><p class="muted" style="margin:4px 0 0">${BABY_ACTS.length} نشاط — دوسي على النشاط وهتلاقي أثره على مؤشرات البيبي.</p></div>
     <div class="grid2">${BABY_ACTS.map(a=>`<div class="card" style="margin:0;text-align:center;padding:14px">
@@ -1343,7 +1756,7 @@ function viewBabyCorner(){
     </div>`).join("")}</div>`;
   }
   return `
-  <h2 class="sec">ركن البيبي <small>${BABY_TOYS.length+BABY_FOODS.length+BABY_SONGS.length+BABY_ACTS.length} حاجة جديدة</small></h2>
+  <h2 class="sec">ركن البيبي <small>${BABY_TOYS.length+BABY_FOODS.length+BABY_SONGS.length+BABY_ACTS.length+BABY_LEARN.length+BABY_STORIES.length} حاجة جديدة</small></h2>
   <div class="tabs2">${tabs.map(([id,em,n])=>`<button data-btab="${id}" class="${bf.tab===id?"on":""}">${em} ${n}</button>`).join("")}</div>
   ${body}`;
 }
@@ -1447,7 +1860,7 @@ function featureList(){
     ["حمام بدش بماء دافي وغسل الوجه والإيدين والأسنان", S.modules.bath],
     ["حديقة حيوانات: شراء وتربية وتزيين ولبس الحيوانات", S.modules.pets],
     ["متجر مكونات وحيوانات ومستلزمات", S.modules.store],
-    ["ركن البيبي: ألعاب وأكل وأغاني وأنشطة جديدة", S.modules.babyCorner],
+    ["ركن البيبي: ألعاب وأكل وأغاني وأنشطة و100 كارت تعليم و60 حكاية قبل النوم", S.modules.babyCorner],
     ["إخفاء وإظهار الميزات من دي الصفحة", true],
     ["حفظ تلقائي على الموبايل", true]
   ];
@@ -1457,7 +1870,8 @@ function featureList(){
     Object.values(NURSERY).reduce((a,g)=>a+g.items.length,0) +
     INGREDIENTS.length + RECIPES.length + BATH_ACTS.length +
     PET_DEFS.length + PET_ITEMS.length +
-    BABY_TOYS.length + BABY_FOODS.length + BABY_SONGS.length + BABY_ACTS.length;
+    BABY_TOYS.length + BABY_FOODS.length + BABY_SONGS.length + BABY_ACTS.length +
+    BABY_LEARN.length + BABY_STORIES.length;
   return {items, garmentCount, makeupCount, featureItems};
 }
 
@@ -1473,7 +1887,7 @@ function viewFeatures(){
     ["bath","الحمام","دش وغسل واعتناء"],
     ["pets","الحيوانات","حديقة وتربية وتزيين"],
     ["store","المتجر","مكونات وحيوانات ومستلزمات"],
-    ["babyCorner","ركن البيبي","ألعاب وأكل وأغاني وأنشطة"]
+    ["babyCorner","ركن البيبي","ألعاب وأكل وأغاني وأنشطة وتعليم وحكايات"]
   ];
   return `
   <h2 class="sec">كل الميزات <small>${F.items} عنصر وميزة</small></h2>
@@ -1604,6 +2018,8 @@ function bind(){
     [...scr.querySelectorAll("[data-feedfood]")].forEach(b=>b.onclick=()=>feedBabyFood(b.dataset.feedfood));
     [...scr.querySelectorAll("[data-sing]")].forEach(b=>b.onclick=()=>singBabySong(b.dataset.sing));
     [...scr.querySelectorAll("[data-babyact]")].forEach(b=>b.onclick=()=>babyAct(b.dataset.babyact));
+    [...scr.querySelectorAll("[data-learn]")].forEach(b=>b.onclick=()=>learnCard(b.dataset.learn));
+    [...scr.querySelectorAll("[data-story]")].forEach(b=>b.onclick=()=>readStory(b.dataset.story));
   }
   if(S.view==="store"){
     [...scr.querySelectorAll("[data-stab]")].forEach(b=>b.onclick=()=>{ sf.tab=b.dataset.stab; render(); });
@@ -1869,6 +2285,33 @@ function babyAct(id){
   addCoins(3); addXp(2); save();
   toast(`${a.n} ✓ +3 🪙`); render();
 }
+function learnCard(id){
+  const c = BABY_LEARN.find(x=>x.id===id); if(!c) return;
+  const bc = S.babyCorner;
+  if(!Array.isArray(bc.learned)) bc.learned = [];
+  const first = !bc.learned.includes(id);
+  if(first){
+    bc.learned.push(id);
+    S.stats.happy = clamp(S.stats.happy+3, 0, 100);
+    addCoins(4); addXp(5); save();
+    toast(`اتعلمتي ${c.n} — ${c.line} ${c.em} +4 🪙`);
+  } else {
+    addCoins(1); addXp(1); save();
+    toast(`${c.n} — ${c.line} ${c.em}`);
+  }
+  render();
+}
+function readStory(id){
+  const s = BABY_STORIES.find(x=>x.id===id); if(!s) return;
+  const bc = S.babyCorner;
+  bc.stories = (bc.stories||0)+1;
+  bc.lastStory = id;
+  S.stats.happy = clamp(S.stats.happy+4, 0, 100);
+  S.stats.energy = clamp(S.stats.energy+2, 0, 100);
+  S.day.tasks.play = (S.day.tasks.play||0)+1;
+  addCoins(3); addXp(3); save();
+  toast(`📖 ${s.n} — ${s.line}`); render();
+}
 
 /* ================= boot ================= */
 if(!S.started){ S.view = "start"; } else if(!S.view || S.view==="start"){ S.view="home"; }
@@ -1879,7 +2322,7 @@ window.__mom = {
   get state(){ return S; },
   go, featureList, care, buy, wear, takeOff, outing,
   buyIngredient, cook, serve, bathAct, buyPet, buySupply, petAct, petEquip, renamePet,
-  buyBabyToy, playBabyToy, buyBabyFood, feedBabyFood, singBabySong, babyAct,
+  buyBabyToy, playBabyToy, buyBabyFood, feedBabyFood, singBabySong, babyAct, learnCard, readStory,
   get kitchenTab(){ return kf.tab; }, set kitchenTab(v){ kf.tab=v; },
   get babyTab(){ return bf.tab; }, set babyTab(v){ bf.tab=v; },
   get storeTab(){ return sf.tab; }, set storeTab(v){ sf.tab=v; },
